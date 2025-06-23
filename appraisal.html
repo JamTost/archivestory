@@ -276,7 +276,7 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">Config.saves.slots = 0;
 </script><tw-passagedata pid="1" name="Step1" tags="" position="500,125" size="100,100">&lt;&lt;set $AppraisalKnowledge + 1&gt;&gt;
 &lt;&lt;type 60ms&gt;&gt;\
-&#39;&#39;You are working in the Archive of the Nation of Scotland&#39;&#39;
+&#39;&#39;You are working in the Archive of Scotia&#39;&#39;
 
 It&#39;s 4:45pm on a Monday. You have received a phone call.
 
@@ -776,9 +776,7 @@ This box has &#39;DIARIES&#39; written on the side.
 
 When you open it there are loads of notepads and A5-sized notebooks inside.
 
-&lt;&lt;timed 2s&gt;&gt;LOADS!&lt;&lt;/timed&gt;&gt;
-
-&lt;&lt;timed 4s&gt;&gt;It looks like there could be around 50 of these, at least. It also looks like there might be a few bundles of loose papers at the very bottom of the box.&lt;&lt;/timed&gt;&gt;
+&lt;&lt;timed 2s&gt;&gt;It looks like there could be around 50 of these, at least. It also looks like there might be a few bundles of loose papers at the very bottom of the box.&lt;&lt;/timed&gt;&gt;
 
 &lt;&lt;timed 5s&gt;&gt;&#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;&lt;&lt;/timed&gt;&gt;
 
@@ -1075,9 +1073,32 @@ While the information you&#39;ve been able to gather so far has been useful, the
 &#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;
 &lt;&lt;/type&gt;&gt;&lt;&lt;timed 25s&gt;&gt;
 [[Look through the boxes|Step9]]
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="47" name="Step9" tags="" position="1000,1550" size="100,100">&lt;div class=&quot;box-ui&quot;&gt;
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="47" name="Step9" tags="" position="1000,1550" size="100,100">&lt;&lt;script&gt;&gt;
+Engine.once(&quot;postdisplay&quot;, function () {
+    var vars = State.variables;
+    var boxesKept = vars.boxesKept;
+    var boxItemsMap = vars.boxItemsMap;
+    var itemDecisions = vars.itemDecisions;
+
+    var allDone = boxesKept.every(function(id) {
+        var items = boxItemsMap[id] || [];
+        return items.every(function(item) {
+            return typeof itemDecisions[item] !== &quot;undefined&quot;;
+        });
+    });
+
+    if (allDone) {
+        Engine.play(&quot;AllBoxesComplete&quot;);
+    }
+});
+&lt;&lt;/script&gt;&gt;
+
+
+
+
+&lt;div class=&quot;box-ui&quot;&gt;
   &lt;&lt;for _id range $boxesKept&gt;&gt;
-    &lt;&lt;set _items = $boxItemsMap[_id]&gt;&gt;
+	&lt;&lt;set _items = $boxItemsMap[_id] or []&gt;&gt;
     &lt;&lt;set _allDone = true&gt;&gt;
     &lt;&lt;for _item range _items&gt;&gt;
       &lt;&lt;if typeof $itemDecisions[_item] === &quot;undefined&quot;&gt;&gt;
@@ -1123,25 +1144,6 @@ While the information you&#39;ve been able to gather so far has been useful, the
   &lt;&lt;/for&gt;&gt;
 &lt;/div&gt;
 
-&lt;script&gt;
-postdisplay[&quot;checkAllBoxesDone&quot;] = function (taskName) {
-  var vars = State.variables;
-  var allBoxes = vars.boxesKept;
-  var map = vars.boxItemsMap;
-  var decisions = vars.itemDecisions;
-
-  var allBoxesDone = allBoxes.every(function (boxId) {
-    var items = map[boxId] || [];
-    return items.every(function (itemId) {
-      return typeof decisions[itemId] !== &quot;undefined&quot;;
-    });
-  });
-
-  if (allBoxesDone) {
-    Engine.play(&quot;AllBoxesComplete&quot;);
-  }
-};
-&lt;/script&gt;
 
 </tw-passagedata><tw-passagedata pid="48" name="Box1Explore" tags="" position="500,1675" size="100,100">&#39;&#39;Box 1&#39;&#39;
 &lt;div class=&quot;box-ui&quot;&gt;
