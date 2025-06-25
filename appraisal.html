@@ -1065,7 +1065,7 @@ You&#39;ve done some research about Ms Famous Footballer and you&#39;ve set asid
      typeof $itemDecisions[&quot;Box1_Item2&quot;] !== &quot;undefined&quot; and
      typeof $itemDecisions[&quot;Box1_Item3&quot;] !== &quot;undefined&quot; and
      typeof $itemDecisions[&quot;Box1_Item4&quot;] !== &quot;undefined&quot;&gt;&gt;
-  You’ve made a decision about every item in this box.
+  You’ve had a look at everything in this box.
 &lt;&lt;/if&gt;&gt;
 
 
@@ -1102,7 +1102,7 @@ You&#39;ve done some research about Ms Famous Footballer and you&#39;ve set asid
      typeof $itemDecisions[&quot;Box2_Item2&quot;] !== &quot;undefined&quot; and
      typeof $itemDecisions[&quot;Box2_Item3&quot;] !== &quot;undefined&quot; and
      typeof $itemDecisions[&quot;Box2_Item4&quot;] !== &quot;undefined&quot;&gt;&gt;
-  You’ve made a decision about every item in this box.
+  You’ve had a look at everything in this box.
 &lt;&lt;/if&gt;&gt;
 
 
@@ -1139,7 +1139,7 @@ You&#39;ve done some research about Ms Famous Footballer and you&#39;ve set asid
      typeof $itemDecisions[&quot;Box3_Item2&quot;] !== &quot;undefined&quot; and
      typeof $itemDecisions[&quot;Box3_Item3&quot;] !== &quot;undefined&quot; and
      typeof $itemDecisions[&quot;Box3_Item4&quot;] !== &quot;undefined&quot;&gt;&gt;
-  You’ve made a decision about every item in this box.
+  You’ve had a look at everything in this box.
  &lt;&lt;/if&gt;&gt;
 
 
@@ -1176,7 +1176,7 @@ You&#39;ve done some research about Ms Famous Footballer and you&#39;ve set asid
      typeof $itemDecisions[&quot;Box4_Item2&quot;] !== &quot;undefined&quot; and
      typeof $itemDecisions[&quot;Box4_Item3&quot;] !== &quot;undefined&quot; and
      typeof $itemDecisions[&quot;Box4_Item4&quot;] !== &quot;undefined&quot;&gt;&gt;
-  You’ve made a decision about every item in this box.
+  You’ve had a look at everything in this box.
   &lt;&lt;/if&gt;&gt;
 
 
@@ -1213,7 +1213,7 @@ You&#39;ve done some research about Ms Famous Footballer and you&#39;ve set asid
      typeof $itemDecisions[&quot;Box5_Item2&quot;] !== &quot;undefined&quot; and
      typeof $itemDecisions[&quot;Box5_Item3&quot;] !== &quot;undefined&quot; and
      typeof $itemDecisions[&quot;Box5_Item4&quot;] !== &quot;undefined&quot;&gt;&gt;
-  You’ve made a decision about every item in this box.
+  You’ve had a look at everything in this box.
   &lt;&lt;/if&gt;&gt;
 
 
@@ -1250,9 +1250,7 @@ You&#39;ve done some research about Ms Famous Footballer and you&#39;ve set asid
      typeof $itemDecisions[&quot;Box6_Item2&quot;] !== &quot;undefined&quot; and
      typeof $itemDecisions[&quot;Box6_Item3&quot;] !== &quot;undefined&quot; and
      typeof $itemDecisions[&quot;Box6_Item4&quot;] !== &quot;undefined&quot;&gt;&gt;
-  You’ve made a decision about every item in this box.
-  
-  [[Return to the other boxes|Step9]]
+  You’ve had a look at everything in this box.
 &lt;&lt;/if&gt;&gt;
 
 
@@ -1657,20 +1655,20 @@ What do you want to do?
 &lt;&lt;run $itemsLeft.push(&quot;Box6_Item4&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box6Explore&quot;&gt;&gt;
 
-</tw-passagedata><tw-passagedata pid="127" name="Step10" tags="" position="1250,1550" size="100,100">&lt;p style=&quot;text-align: center; font-size: 1.4em; font-weight: bold;&quot;&gt;🎉 Congratulations! You have reached the end of the appraisal game! 🎉&lt;/p&gt;
+</tw-passagedata><tw-passagedata pid="127" name="Step10" tags="" position="1250,1550" size="100,100">&lt;p style=&quot;text-align: center; font-size: 1.4em; font-weight: bold;&quot;&gt;🎉 Congratulations! 🎉&lt;br&gt;You have reached the end of the appraisal game!&lt;/p&gt;
 &lt;p style=&quot;text-align: center; font-size: 1em; font-weight: bold;&quot;&gt;Appraisal knowledge: $AppraisalKnowledge&lt;/p&gt;
 &lt;div style=&quot;display: flex; gap: 2em;&quot;&gt;
 
 &lt;!-- Kept Items --&gt;
 &lt;div style=&quot;
   flex: 1;
-  border-left: 10px solid #228B22;
-  background: #d2f4d2;
+  border-left: 10px solid #ffec33;
+  background: #fff9c4;
   padding: 0.3em 1em 1em 1em;
   border-radius: 6px;
-  color: #103810;
+  color: #976205;
 &quot;&gt;
-  &lt;h3 style=&quot;color: #1c5c1c; margin-bottom: 0.3em;&quot;&gt;🗃️ You Kept (&lt;&lt;= $itemsKept.length &gt;&gt;)&lt;/h3&gt;
+  &lt;h3 style=&quot;color: #976205; margin-bottom: 0.3em;&quot;&gt;🗃️ You Kept (&lt;&lt;= $itemsKept.length &gt;&gt;)&lt;/h3&gt;
   &lt;ul style=&quot;margin-top: 0;&quot;&gt;
     &lt;&lt;for _item range $itemsKept&gt;&gt;
       &lt;li&gt;&lt;&lt;= $itemDescriptions[_item] &gt;&gt;&lt;/li&gt;
@@ -1682,13 +1680,13 @@ What do you want to do?
   &lt;!-- Left Items --&gt;
   &lt;div style=&quot;
     flex: 1;
-    border-left: 10px solid #8B0000;  /* dark red */
-    background: #f4d2d2;              /* pale red */
+    border-left: 10px solid #a609bc;
+    background: #f3e5f5;              
 	padding: 0.3em 1em 1em 1em;
     border-radius: 6px;
-    color: #5c1c1c;                   /* dark red text */
+    color: #631536;                   
   &quot;&gt;
-    &lt;h3 style=&quot;color: #7a0000; margin-bottom: 0.3em;&quot;&gt;🗑️ You Left (&lt;&lt;= $itemsLeft.length &gt;&gt;)&lt;/h3&gt;
+    &lt;h3 style=&quot;color: #631536; margin-bottom: 0.3em;&quot;&gt;🗑️ You Left (&lt;&lt;= $itemsLeft.length &gt;&gt;)&lt;/h3&gt;
       &lt;ul style=&quot;margin-top: 0;&quot;&gt;
       &lt;&lt;for _item range $itemsLeft&gt;&gt;
         &lt;li&gt;&lt;&lt;= $itemDescriptions[_item] &gt;&gt;&lt;/li&gt;
@@ -1700,12 +1698,7 @@ What do you want to do?
 &lt;p style=&quot;text-align: center; font-size: 1.1em;&quot;&gt;
   Total items reviewed: &lt;strong&gt;&lt;&lt;= $itemsKept.length + $itemsLeft.length &gt;&gt;&lt;/strong&gt;&lt;br&gt;
   That’s &lt;strong&gt;&lt;&lt;= Math.round(($itemsKept.length / 24) * 100) &gt;&gt;%&lt;/strong&gt; kept and &lt;strong&gt;&lt;&lt;= Math.round(($itemsLeft.length / 24) * 100) &gt;&gt;%&lt;/strong&gt; left.
-&lt;/p&gt;
-
-
-
-
-[[AllBoxesComplete]]</tw-passagedata><tw-passagedata pid="128" name="StoryInit" tags="" position="300,0" size="100,100">&lt;&lt;set $visitedRooms to []&gt;&gt;
+&lt;/p&gt;</tw-passagedata><tw-passagedata pid="128" name="StoryInit" tags="" position="300,0" size="100,100">&lt;&lt;set $visitedRooms to []&gt;&gt;
 
 &lt;&lt;set $box1 to &quot;available&quot;&gt;&gt;
 &lt;&lt;set $box2 to &quot;available&quot;&gt;&gt;
