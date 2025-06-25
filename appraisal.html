@@ -172,12 +172,6 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
   text-align: center;
 }
 
-.box-row {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
 /* Container for all the buttons */
 .box-ui {
   display: flex;
@@ -229,6 +223,8 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
   margin-top: 6px;
   display: block;
 }
+
+
 
 @keyframes orbit {
   from { transform: rotate(0deg); }
@@ -333,6 +329,7 @@ You: //&quot;Can you tell me a little more about the items...?&quot;//
 Caller: //&quot;Oh there&#39;s all sorts really. Although it belongs to me now, but it once belonged to my late friend, Ms Famous Footballer, so it&#39;s really //her// archive.&quot;//
 &lt;&lt;set $AppraisalKnowledge to $AppraisalKnowledge += 1&gt;&gt;
 &#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;
+
 You: //&quot;Fascinating! Please tell me about...&quot;//
 
 [[Ms Famous Footballer|Room1]]
@@ -348,11 +345,9 @@ You: //&quot;Fascinating! Please tell me about...&quot;//
 
 
 </tw-passagedata><tw-passagedata pid="3" name="Stop2" tags="" position="625,125" size="100,100">&lt;&lt;type 60ms&gt;&gt;\
-From what you&#39;ve heard...
-It sounds like the archive could be best placed with an archive in Glasgow...
-The physical condition of the archive is also unclear...
-And it sounds like there&#39;s a lot of books and objects...
-Which you might not normally take...
+From what you&#39;ve heard, it sounds like the archive could be best placed with an archive in Glasgow.
+
+The physical condition of the archive is also unclear, and it sounds like there&#39;s a lot of books and objects which you might not normally take.
 
 [[Go back to the call to find out more|Step3]]
 &lt;&lt;/type&gt;&gt;
@@ -369,45 +364,36 @@ Which you might not normally take...
 </tw-passagedata><tw-passagedata pid="5" name="Step2" tags="" position="500,250" size="100,100">&lt;&lt;type 60ms&gt;&gt;\
 During the call you find out that the archive likely belonged to someone from Glasgow. 
 
-The caller keeps mentioning //&quot;handwritten notebooks&quot;//, as well as //&quot;boxes stuffed full of books, photographs and medals.&quot;//
+The caller keeps mentioning //&quot;handwritten notebooks&quot;//, as well as //&quot;boxes stuffed full of books, papers, and medals.&quot;//
 
-From the brief amount you&#39;ve heard, it&#39;s not yet entirely clear if this collection would be best placed at this archive...
+From the brief amount you&#39;ve heard, it&#39;s not yet entirely clear if this collection would be best placed with your archive.
 
-You now have a decision to make.&lt;&lt;set $AppraisalKnowledge += 1&gt;&gt;
+You now have a decision to make.
+&lt;&lt;set $AppraisalKnowledge += 1&gt;&gt;
 &#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;
 &lt;&lt;/type&gt;&gt;
 &lt;&lt;timed 25s&gt;&gt; [[Continue phonecall to find out more|Step3]]&lt;&lt;/timed&gt;&gt;
 
-&lt;&lt;timed 26s&gt;&gt; [[Politely decline their offer, and suggest other archives to try|Stop2]]
+&lt;&lt;timed 26s&gt;&gt; [[Politely decline their offer|Stop2]]
 &lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="Stop1" tags="" position="625,0" size="100,100">&lt;&lt;type 60ms&gt;&gt;\
 It&#39;s always best to try and find out a bit more before declining an offer, that way you can establish if a collection is a good fit for your archive, or you can direct the person towards the best alternatives...
 
 [[Go back to the start|Step0]]
-&lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="7" name="Room1" tags="" position="375,500" size="100,100">&lt;&lt;if $visitedRooms.includes(&quot;Room1&quot;)&gt;&gt;
-	You&#39;ve already been here. Redirecting...
-	&lt;&lt;goto &quot;Hub&quot;&gt;&gt;
-&lt;&lt;else&gt;&gt;
+&lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="7" name="Room1" tags="" position="375,500" size="100,100">&lt;&lt;if $visitedRooms.includes(&quot;Room1&quot;)&gt;&gt;&lt;&lt;goto &quot;Hub&quot;&gt;&gt;&lt;&lt;else&gt;&gt;
+&lt;&lt;silent&gt;&gt;
 	&lt;&lt;set $visitedRooms.push(&quot;Room1&quot;)&gt;&gt;
-
-	&lt;&lt;set _allRoomsVisited = $visitedRooms.includes(&quot;Room2&quot;) and
-	                         $visitedRooms.includes(&quot;Room3&quot;) and
-	                         $visitedRooms.includes(&quot;Room4&quot;) and
-     	                     $visitedRooms.includes(&quot;Room5&quot;) and
-	                         $visitedRooms.includes(&quot;Room6&quot;) and
-	                         $visitedRooms.includes(&quot;Room7&quot;)&gt;&gt;
-
+	&lt;&lt;set _allRoomsVisited = $visitedRooms.includes(&quot;Room2&quot;) and      $visitedRooms.includes(&quot;Room3&quot;) and $visitedRooms.includes(&quot;Room4&quot;) and $visitedRooms.includes(&quot;Room5&quot;) and $visitedRooms.includes(&quot;Room6&quot;) and $visitedRooms.includes(&quot;Room7&quot;)&gt;&gt;
+&lt;&lt;/silent&gt;&gt;
 	&lt;&lt;if _allRoomsVisited&gt;&gt;
     &#39;&#39;Ms Famous Footballer&#39;&#39;
 		&lt;&lt;type 60ms&gt;&gt;
 		//&quot;Oh she was born and lived in Glasgow her whole life. Folk have written books about her! She was awfie gid at fitbaw, won the first ever Gowden Bitt award. Captain of the national team, and then she worked as a coach. Ah think she was thinking about writing a book too about her experiences, but ah could be wrong.&quot;//
 		&lt;&lt;set $AppraisalKnowledge += 1&gt;&gt;
 		&#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;
-		&lt;&lt;/type&gt;&gt;
-		
-		&lt;&lt;timed 10s&gt;&gt;
+
 		You&#39;ve found out as much as you can for now...  
-		[[Continue the conversation|Step4]]
-		&lt;&lt;/timed&gt;&gt;
+		[[Continue the conversation|Step4]]        
+		&lt;&lt;/type&gt;&gt;
 	&lt;&lt;else&gt;&gt;
    &#39;&#39;Ms Famous Footballer&#39;&#39;
 		&lt;&lt;type 60ms&gt;&gt;
@@ -425,32 +411,21 @@ It&#39;s always best to try and find out a bit more before declining an offer, t
 [[Terms of donation|Room7]]
 		&lt;&lt;/type&gt;&gt;
 	&lt;&lt;/if&gt;&gt;
-&lt;&lt;/if&gt;&gt;
-</tw-passagedata><tw-passagedata pid="8" name="Room3" tags="" position="625,500" size="100,100">&lt;&lt;if $visitedRooms.includes(&quot;Room3&quot;)&gt;&gt;
-	You&#39;ve already been here. Redirecting...
-	&lt;&lt;goto &quot;Hub&quot;&gt;&gt;
-&lt;&lt;else&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="Room3" tags="" position="625,500" size="100,100">&lt;&lt;if $visitedRooms.includes(&quot;Room3&quot;)&gt;&gt;&lt;&lt;goto &quot;Hub&quot;&gt;&gt;&lt;&lt;else&gt;&gt;
+&lt;&lt;silent&gt;&gt;
 	&lt;&lt;set $visitedRooms.push(&quot;Room3&quot;)&gt;&gt;
-
-	&lt;&lt;set _allRoomsVisited = $visitedRooms.includes(&quot;Room2&quot;) and
-	                         $visitedRooms.includes(&quot;Room1&quot;) and
-	                         $visitedRooms.includes(&quot;Room4&quot;) and
-     	                     $visitedRooms.includes(&quot;Room5&quot;) and
-	                         $visitedRooms.includes(&quot;Room6&quot;) and
-	                         $visitedRooms.includes(&quot;Room7&quot;)&gt;&gt;
-
+    &lt;&lt;set _allRoomsVisited = $visitedRooms.includes(&quot;Room2&quot;) and $visitedRooms.includes(&quot;Room1&quot;) and $visitedRooms.includes(&quot;Room4&quot;) and $visitedRooms.includes(&quot;Room5&quot;) and $visitedRooms.includes(&quot;Room6&quot;) and $visitedRooms.includes(&quot;Room7&quot;)&gt;&gt;
+&lt;&lt;/silent&gt;&gt;
 	&lt;&lt;if _allRoomsVisited&gt;&gt;
     &#39;&#39;Type of material&#39;&#39;
 		&lt;&lt;type 60ms&gt;&gt;
-		//&quot;Hmm well... From what I remember it was mostly notebooks, wee ones and big ones. Loads of photos. Maybe some newspapers too? But all I mostly remember seeing is the notebooks.&quot;//
+		//&quot;Hmm well... From what I remember it was mostly notebooks, wee ones and big ones. A few photographs. Maybe some newspapers too? But all I mostly remember seeing is the notebooks.&quot;//
 		&lt;&lt;set $AppraisalKnowledge += 1&gt;&gt;
-		&#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;
-		&lt;&lt;/type&gt;&gt;
+		&#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;		
 		
-		&lt;&lt;timed 10s&gt;&gt;
 		You&#39;ve found out as much as you can for now...  
 		[[Continue the conversation|Step4]]
-		&lt;&lt;/timed&gt;&gt;
+		&lt;&lt;/type&gt;&gt;
 	&lt;&lt;else&gt;&gt;
     &#39;&#39;Type of material&#39;&#39;
 		&lt;&lt;type 60ms&gt;&gt;
@@ -469,31 +444,21 @@ It&#39;s always best to try and find out a bit more before declining an offer, t
 		&lt;&lt;/type&gt;&gt;
 	&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-</tw-passagedata><tw-passagedata pid="9" name="Room2" tags="" position="500,500" size="100,100">&lt;&lt;if $visitedRooms.includes(&quot;Room2&quot;)&gt;&gt;
-	You&#39;ve already been here. Redirecting...
-	&lt;&lt;goto &quot;Hub&quot;&gt;&gt;
-&lt;&lt;else&gt;&gt;
+</tw-passagedata><tw-passagedata pid="9" name="Room2" tags="" position="500,500" size="100,100">&lt;&lt;if $visitedRooms.includes(&quot;Room2&quot;)&gt;&gt;&lt;&lt;goto &quot;Hub&quot;&gt;&gt;&lt;&lt;else&gt;&gt;
+&lt;&lt;silent&gt;&gt;
 	&lt;&lt;set $visitedRooms.push(&quot;Room2&quot;)&gt;&gt;
-
-	&lt;&lt;set _allRoomsVisited = $visitedRooms.includes(&quot;Room1&quot;) and
-	                         $visitedRooms.includes(&quot;Room3&quot;) and
-	                         $visitedRooms.includes(&quot;Room4&quot;) and
-     	                     $visitedRooms.includes(&quot;Room5&quot;) and
-	                         $visitedRooms.includes(&quot;Room6&quot;) and
-	                         $visitedRooms.includes(&quot;Room7&quot;)&gt;&gt;
-
+	&lt;&lt;set _allRoomsVisited = $visitedRooms.includes(&quot;Room1&quot;) and $visitedRooms.includes(&quot;Room3&quot;) and $visitedRooms.includes(&quot;Room4&quot;) and $visitedRooms.includes(&quot;Room5&quot;) and $visitedRooms.includes(&quot;Room6&quot;) and $visitedRooms.includes(&quot;Room7&quot;)&gt;&gt;
+&lt;&lt;/silent&gt;&gt;
 	&lt;&lt;if _allRoomsVisited&gt;&gt;
     &#39;&#39;Amount of material&#39;&#39;
 		&lt;&lt;type 60ms&gt;&gt;
 		//&quot;Ah you see, I&#39;m no really sure. She gave me those boxes not long before she passed away a few years ago. I think there were maybe 6 or 7 boxes? But they&#39;re all different sizes...&quot;//
 		&lt;&lt;set $AppraisalKnowledge += 1&gt;&gt;
-		&#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;
-		&lt;&lt;/type&gt;&gt;
-		
-		&lt;&lt;timed 10s&gt;&gt;
+		&#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;		
+
 		You&#39;ve found out as much as you can for now...  
 		[[Continue the conversation|Step4]]
-		&lt;&lt;/timed&gt;&gt;
+		&lt;&lt;/type&gt;&gt;
 	&lt;&lt;else&gt;&gt;
     &#39;&#39;Amount of material&#39;&#39;
 		&lt;&lt;type 60ms&gt;&gt;
@@ -512,31 +477,21 @@ It&#39;s always best to try and find out a bit more before declining an offer, t
 		&lt;&lt;/type&gt;&gt;
 	&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-</tw-passagedata><tw-passagedata pid="10" name="Room4" tags="" position="375,625" size="100,100">&lt;&lt;if $visitedRooms.includes(&quot;Room4&quot;)&gt;&gt;
-	You&#39;ve already been here. Redirecting...
-	&lt;&lt;goto &quot;Hub&quot;&gt;&gt;
-&lt;&lt;else&gt;&gt;
+</tw-passagedata><tw-passagedata pid="10" name="Room4" tags="" position="375,625" size="100,100">&lt;&lt;if $visitedRooms.includes(&quot;Room4&quot;)&gt;&gt;&lt;&lt;goto &quot;Hub&quot;&gt;&gt;&lt;&lt;else&gt;&gt;
+&lt;&lt;silent&gt;&gt;
 	&lt;&lt;set $visitedRooms.push(&quot;Room4&quot;)&gt;&gt;
-
-	&lt;&lt;set _allRoomsVisited = $visitedRooms.includes(&quot;Room2&quot;) and
-	                         $visitedRooms.includes(&quot;Room3&quot;) and
-	                         $visitedRooms.includes(&quot;Room1&quot;) and
-     	                     $visitedRooms.includes(&quot;Room5&quot;) and
-	                         $visitedRooms.includes(&quot;Room6&quot;) and
-	                         $visitedRooms.includes(&quot;Room7&quot;)&gt;&gt;
-
+	&lt;&lt;set _allRoomsVisited = $visitedRooms.includes(&quot;Room2&quot;) and $visitedRooms.includes(&quot;Room3&quot;) and $visitedRooms.includes(&quot;Room1&quot;) and $visitedRooms.includes(&quot;Room5&quot;) and $visitedRooms.includes(&quot;Room6&quot;) and $visitedRooms.includes(&quot;Room7&quot;)&gt;&gt;
+&lt;&lt;/silent&gt;&gt;
 	&lt;&lt;if _allRoomsVisited&gt;&gt;
     &#39;&#39;Subject and content&#39;&#39;
 		&lt;&lt;type 60ms&gt;&gt;
 		//&quot;Well ah had a wee look and ah think most of the notebooks are her diaries from her earliest playing days as a teenager right through her professional career. And then ah think there might be some notes for a book. Nice photographs of the different teams she played in and action shots, and some newspaper stuff like press coverage of her winning the Gowden Bitt.&quot;//
 		&lt;&lt;set $AppraisalKnowledge += 1&gt;&gt;
 		&#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;
-		&lt;&lt;/type&gt;&gt;
-		
-		&lt;&lt;timed 10s&gt;&gt;
+
 		You&#39;ve found out as much as you can for now...  
 		[[Continue the conversation|Step4]]
-		&lt;&lt;/timed&gt;&gt;
+		&lt;&lt;/type&gt;&gt;
 	&lt;&lt;else&gt;&gt;
     &#39;&#39;Subject and content&#39;&#39;
 		&lt;&lt;type 60ms&gt;&gt;
@@ -555,31 +510,21 @@ It&#39;s always best to try and find out a bit more before declining an offer, t
 		&lt;&lt;/type&gt;&gt;
 	&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-</tw-passagedata><tw-passagedata pid="11" name="Room5" tags="" position="625,625" size="100,100">&lt;&lt;if $visitedRooms.includes(&quot;Room5&quot;)&gt;&gt;
-	You&#39;ve already been here. Redirecting...
-	&lt;&lt;goto &quot;Hub&quot;&gt;&gt;
-&lt;&lt;else&gt;&gt;
+</tw-passagedata><tw-passagedata pid="11" name="Room5" tags="" position="625,625" size="100,100">&lt;&lt;if $visitedRooms.includes(&quot;Room5&quot;)&gt;&gt;&lt;&lt;goto &quot;Hub&quot;&gt;&gt;&lt;&lt;else&gt;&gt;
+&lt;&lt;silent&gt;&gt;
 	&lt;&lt;set $visitedRooms.push(&quot;Room5&quot;)&gt;&gt;
-
-	&lt;&lt;set _allRoomsVisited = $visitedRooms.includes(&quot;Room2&quot;) and
-	                         $visitedRooms.includes(&quot;Room3&quot;) and
-	                         $visitedRooms.includes(&quot;Room4&quot;) and
-     	                     $visitedRooms.includes(&quot;Room1&quot;) and
-	                         $visitedRooms.includes(&quot;Room6&quot;) and
-	                         $visitedRooms.includes(&quot;Room7&quot;)&gt;&gt;
-
+	&lt;&lt;set _allRoomsVisited = $visitedRooms.includes(&quot;Room2&quot;) and $visitedRooms.includes(&quot;Room3&quot;) and $visitedRooms.includes(&quot;Room4&quot;) and $visitedRooms.includes(&quot;Room1&quot;) and $visitedRooms.includes(&quot;Room6&quot;) and $visitedRooms.includes(&quot;Room7&quot;)&gt;&gt;
+&lt;&lt;/silent&gt;&gt;
 	&lt;&lt;if _allRoomsVisited&gt;&gt;
   &#39;&#39;Ownership&#39;&#39;
 		&lt;&lt;type 60ms&gt;&gt;
 		//&quot;So the boxes were given to me by Ms Famous Footballer, we&#39;d been friends for years. She also made over everything to me in her will as well, so I think it all belongs to me now...&quot;//
 		&lt;&lt;set $AppraisalKnowledge += 1&gt;&gt;
 		&#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;
-		&lt;&lt;/type&gt;&gt;
-		
-		&lt;&lt;timed 10s&gt;&gt;
-		You&#39;ve found out as much as you can...  
+        
+		You&#39;ve found out as much as you can for now...  
 		[[Continue the conversation|Step4]]
-		&lt;&lt;/timed&gt;&gt;
+		&lt;&lt;/type&gt;&gt;
 	&lt;&lt;else&gt;&gt;
     &#39;&#39;Ownership&#39;&#39;
 		&lt;&lt;type 60ms&gt;&gt;
@@ -606,9 +551,10 @@ It&#39;s always best to try and find out a bit more before declining an offer, t
 &lt;&lt;if not $visitedRooms.includes(&quot;Room5&quot;)&gt;&gt;&lt;li&gt;[[Ownership|Room5]]&lt;/li&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if not $visitedRooms.includes(&quot;Room6&quot;)&gt;&gt;&lt;li&gt;[[Physical condition|Room6]]&lt;/li&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if not $visitedRooms.includes(&quot;Room7&quot;)&gt;&gt;&lt;li&gt;[[Terms of donation|Room7]]&lt;/li&gt;&lt;&lt;/if&gt;&gt;
-&lt;/ul&gt;</tw-passagedata><tw-passagedata pid="13" name="Step4" tags="" position="425,900" size="100,100">&#39;&#39;Hang on a wee minute!&#39;&#39; Let&#39;s chat about what we&#39;ve found out so far.
+&lt;/ul&gt;</tw-passagedata><tw-passagedata pid="13" name="Step4" tags="" position="425,900" size="100,100">&#39;&#39;Hang on a wee minute!&#39;&#39; Let&#39;s chat about what we&#39;ve found out so far.&lt;br&gt;
 &lt;&lt;set $code = $code ?? &quot;&quot;&gt;&gt;
 &lt;label&gt;Enter the password to continue: &lt;&lt;textbox &quot;$code&quot; &quot;&quot;&gt;&gt;&lt;/label&gt;
+&lt;br&gt;
 &lt;&lt;button &quot;Submit&quot;&gt;&gt;
   &lt;&lt;if $code.toLowerCase().trim() === &quot;archivez&quot;&gt;&gt;
     &lt;&lt;goto &quot;Step4.1&quot;&gt;&gt;
@@ -621,31 +567,21 @@ It&#39;s always best to try and find out a bit more before declining an offer, t
 &lt;&lt;timed 12s&gt;&gt;...&lt;&lt;/timed&gt;&gt;
 &lt;&lt;timed 14s&gt;&gt;archivez&lt;&lt;/timed&gt;&gt;
 
-</tw-passagedata><tw-passagedata pid="14" name="Room6" tags="" position="575,750" size="100,100">&lt;&lt;if $visitedRooms.includes(&quot;Room6&quot;)&gt;&gt;
-	You&#39;ve already been here. Redirecting...
-	&lt;&lt;goto &quot;Hub&quot;&gt;&gt;
-&lt;&lt;else&gt;&gt;
+</tw-passagedata><tw-passagedata pid="14" name="Room6" tags="" position="575,750" size="100,100">&lt;&lt;if $visitedRooms.includes(&quot;Room6&quot;)&gt;&gt;&lt;&lt;goto &quot;Hub&quot;&gt;&gt;&lt;&lt;else&gt;&gt;
+&lt;&lt;silent&gt;&gt;
 	&lt;&lt;set $visitedRooms.push(&quot;Room6&quot;)&gt;&gt;
-
-	&lt;&lt;set _allRoomsVisited = $visitedRooms.includes(&quot;Room2&quot;) and
-	                         $visitedRooms.includes(&quot;Room3&quot;) and
-	                         $visitedRooms.includes(&quot;Room4&quot;) and
-     	                     $visitedRooms.includes(&quot;Room5&quot;) and
-	                         $visitedRooms.includes(&quot;Room1&quot;) and
-	                         $visitedRooms.includes(&quot;Room7&quot;)&gt;&gt;
-
+	&lt;&lt;set _allRoomsVisited = $visitedRooms.includes(&quot;Room2&quot;) and $visitedRooms.includes(&quot;Room3&quot;) and $visitedRooms.includes(&quot;Room4&quot;) and $visitedRooms.includes(&quot;Room5&quot;) and $visitedRooms.includes(&quot;Room1&quot;) and $visitedRooms.includes(&quot;Room7&quot;)&gt;&gt;
+&lt;&lt;/silent&gt;&gt;
 	&lt;&lt;if _allRoomsVisited&gt;&gt;
     &#39;&#39;Physical condition&#39;&#39;
 		&lt;&lt;type 60ms&gt;&gt;
 		//&quot;Well it&#39;s been in my garage for a couple of years, but I think it&#39;s mostly ok? I&#39;ve been in and out and there&#39;s sometimes a wee leak or a wee mouse but otherwise it&#39;s been in the boxes.&quot;//
 		&lt;&lt;set $AppraisalKnowledge += 1&gt;&gt;
 		&#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;
-		&lt;&lt;/type&gt;&gt;
-		
-		&lt;&lt;timed 10s&gt;&gt;
+
 		You&#39;ve found out as much as you can for now...  
 		[[Continue the conversation|Step4]]
-		&lt;&lt;/timed&gt;&gt;
+		&lt;&lt;/type&gt;&gt;
 	&lt;&lt;else&gt;&gt;
     &#39;&#39;Physical condition&#39;&#39;
 		&lt;&lt;type 60ms&gt;&gt;
@@ -675,9 +611,9 @@ It&#39;s always best to try and find out a bit more before declining an offer, t
 
 ...
 
-It&#39;s a challenge to make decisions when you only have a limited amount of time and things are so disorganised, but it&#39;s important to take a look to rule out anyhing you wouldn&#39;t want, and to identify anything particularly important.
+It&#39;s a challenge to make decisions when you only have a limited amount of time and things are disorganised, but it&#39;s important to take a look to rule out anything you wouldn&#39;t want, and to identify anything particularly important.
 
-[[Take a look|Step6]]
+[[Look in the boxes|Step6]]
 &lt;&lt;/type&gt;&gt;
 
 </tw-passagedata><tw-passagedata pid="16" name="Step6" tags="" position="800,900" size="100,100">&lt;div class=&quot;box-ui&quot;&gt;
@@ -732,21 +668,16 @@ It&#39;s a challenge to make decisions when you only have a limited amount of ti
 &lt;/div&gt;
 
 &lt;&lt;if $box1 != &quot;available&quot; and $box2 != &quot;available&quot; and $box3 != &quot;available&quot; and $box4 != &quot;available&quot; and $box5 != &quot;available&quot; and $box6 != &quot;available&quot; and $box7 != &quot;available&quot;&gt;&gt;
-  &lt;p&gt;You have looked at all the boxes.&lt;/p&gt;
+  &lt;p&gt;You have looked through all the boxes.&lt;/p&gt;
   [[Proceed|Step7]]
 &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="17" name="Box1" tags="" position="500,1100" size="100,100">&#39;&#39;Box 1&#39;&#39;
 &lt;&lt;set $AppraisalKnowledge += 1&gt;&gt;
-This box has &#39;DIARIES&#39; written on the side.
+This box has &#39;DIARIES&#39; written on the side. When you open it there are lots of notepads and A5-sized notebooks inside. There could be around 50 notebooks. It also looks like there might be a few bundles of loose papers at the very bottom of the box.
 
-When you open it there are loads of notepads and A5-sized notebooks inside.
+&lt;&lt;timed 6s&gt;&gt;&#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;&lt;&lt;/timed&gt;&gt;
 
-&lt;&lt;timed 2s&gt;&gt;It looks like there could be around 50 of these, at least. It also looks like there might be a few bundles of loose papers at the very bottom of the box.&lt;&lt;/timed&gt;&gt;
-
-&lt;&lt;timed 5s&gt;&gt;&#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;&lt;&lt;/timed&gt;&gt;
-
-&lt;&lt;timed 6s&gt;&gt;What do you want to do?&lt;&lt;/timed&gt;&gt;
-
-&lt;&lt;timed 8s&gt;&gt;
+&lt;&lt;timed 8s&gt;&gt;What do you want to do?&lt;&lt;/timed&gt;&gt;
+&lt;&lt;timed 10s&gt;&gt;
   [[Take a closer look|Box1.1]]  
   
   [[Keep this box|KeepBox1]]  
@@ -757,33 +688,27 @@ When you open it there are loads of notepads and A5-sized notebooks inside.
 &lt;&lt;/timed&gt;&gt;
 </tw-passagedata><tw-passagedata pid="18" name="Box2" tags="" position="625,1100" size="100,100">&#39;&#39;Box 2&#39;&#39;
 &lt;&lt;set $AppraisalKnowledge += 1&gt;&gt;
-This box has &#39;KITCHEN&#39; written on the side.
+This box has &#39;KITCHEN&#39; written on the side. You take a look inside and find some large recipe books, with more bits and pieces below.
 
-You take a look inside and find some large recipe books on top, and it looks like there&#39;s more stuff below.
+&lt;&lt;timed 6s&gt;&gt;&#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;&lt;&lt;/timed&gt;&gt;
 
-&lt;&lt;timed 5s&gt;&gt;&#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;&lt;&lt;/timed&gt;&gt;
+&lt;&lt;timed 8s&gt;&gt;What do you want to do?&lt;&lt;/timed&gt;&gt;
+&lt;&lt;timed 10s&gt;&gt;
+[[Take a closer look|Box2.1]]  
 
-&lt;&lt;timed 6s&gt;&gt;What do you want to do?&lt;&lt;/timed&gt;&gt;
+[[Keep this box|KeepBox2]]
 
-&lt;&lt;timed 8s&gt;&gt;
-  [[Take a closer look|Box2.1]]  
-  
-  [[Keep this box|KeepBox2]]  
-  
-  [[Leave this box|LeaveBox2]]
-  
-  [[Have a think about it and look at the other boxes|Step6]]
+[[Leave this box|LeaveBox2]]
+
+[[Have a think about it and look at the other boxes|Step6]]
 &lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="19" name="Box3" tags="" position="750,1100" size="100,100">&#39;&#39;Box 3&#39;&#39;
 &lt;&lt;set $AppraisalKnowledge += 1&gt;&gt;
-This box has nothing written on the side.
+This box doesn&#39;t have anything written on the side. You open it to find sheets of posters, some crumpling and curling. You lift out the posters and are met with the slightly plastic smell of old goalkeeping gloves. Beneath these are a few football shirts, and underneath those you can see what looks to be medals and trophies.
 
-You take a look inside and find some large recipe books on top, and it looks like there&#39;s more stuff below.
+&lt;&lt;timed 6s&gt;&gt;&#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;&lt;&lt;/timed&gt;&gt;
 
-&lt;&lt;timed 5s&gt;&gt;&#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;&lt;&lt;/timed&gt;&gt;
-
-&lt;&lt;timed 6s&gt;&gt;What do you want to do?&lt;&lt;/timed&gt;&gt;
-
-&lt;&lt;timed 8s&gt;&gt;
+&lt;&lt;timed 8s&gt;&gt;What do you want to do?&lt;&lt;/timed&gt;&gt;
+&lt;&lt;timed 10s&gt;&gt;
   [[Take a closer look|Box3.1]]  
   
   [[Keep this box|KeepBox3]]  
@@ -793,13 +718,12 @@ You take a look inside and find some large recipe books on top, and it looks lik
   [[Have a think about it and look at the other boxes|Step6]]
 &lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="Box4" tags="" position="875,1100" size="100,100">&#39;&#39;Box 4&#39;&#39;
 &lt;&lt;set $AppraisalKnowledge += 1&gt;&gt;
-Box 4 would just like to get out of the leaky garage please!
+This box is annotated &#39;Study&#39;, and is quite heavy and densely packed. There looks to be a few accordian files of correspondence, and some file boxes full of loose papers. There&#39;s also some photographs.
 
-&lt;&lt;timed 5s&gt;&gt;&#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;&lt;&lt;/timed&gt;&gt;
+&lt;&lt;timed 6s&gt;&gt;&#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;&lt;&lt;/timed&gt;&gt;
 
-&lt;&lt;timed 6s&gt;&gt;What do you want to do?&lt;&lt;/timed&gt;&gt;
-
-&lt;&lt;timed 8s&gt;&gt;
+&lt;&lt;timed 8s&gt;&gt;What do you want to do?&lt;&lt;/timed&gt;&gt;
+&lt;&lt;timed 10s&gt;&gt;
   [[Take a closer look|Box4.1]]  
   
   [[Keep this box|KeepBox4]]  
@@ -811,14 +735,16 @@ Box 4 would just like to get out of the leaky garage please!
 &lt;&lt;set $AppraisalKnowledge += 1&gt;&gt;
 You start digging deeper into the box.
 
-Among the bundles of paper, you find handwritten diaries dating back decades. Some are damaged, others are pristine. There’s a strong musty smell, but the writing is clear.
+There are stacks and stacks of handwritten diaries detailing the everyday life and career of Ms Famous Footballer. From a quick flick through, the entries seem to date from her teenage years right up until 10 years ago. Most diaries are in good condition, but there is a slight smell of mould. The correspondence seems quite old, potentially from family members. There is also a pile of magazines, but it&#39;s not immediately clear why these are here.
 
 &#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;
 
 What do you want to do?
 
-[[Keep this box|KeepBox1]]  
+[[Keep this box|KeepBox1]]
+
 [[Leave this box|LeaveBox1]]
+
 [[Have a think about it and look at the other boxes|Step6]]
 </tw-passagedata><tw-passagedata pid="22" name="KeepBox1" tags="" position="500,1325" size="100,100">&lt;&lt;set $box1 = &quot;kept&quot;&gt;&gt;
 &lt;&lt;run $boxesKept.push(&quot;Box1&quot;)&gt;&gt;
@@ -853,7 +779,7 @@ What do you want to do?
 &lt;&lt;timed 14s&gt;&gt;manuscriptz&lt;&lt;/timed&gt;&gt;
 
 </tw-passagedata><tw-passagedata pid="25" name="Step4.1" tags="" position="550,900" size="100,100">&lt;&lt;type 60ms&gt;&gt;\
-You finish the call, but not before agreeing to visit the caller to see the contents in person before making a final decision.
+You finish the call and agree to visit the caller to see the contents in person.
 
 A week later you find yourself in the leafy suburbs of Glasgow.
 
@@ -867,14 +793,16 @@ Surrounded by all sorts of boxes...
 &lt;&lt;/type&gt;&gt;
 </tw-passagedata><tw-passagedata pid="26" name="Box2.1" tags="" position="625,1225" size="100,100">&#39;&#39;Box 2&#39;&#39;
 &lt;&lt;set $AppraisalKnowledge += 1&gt;&gt;
-You start digging deeper into the box.
+You unpack some weighty recipe books from the top of the box, the usual suspects (Nigella etc.). These have been well used! Beneath them is a folder containing financial documents and household papers, such as utility bills and guarantees for electrical goods. As you open this folder an SD card falls out. There is also a pile of books that seem to have been written about Ms Famous Footballer. They&#39;re not annotated and don&#39;t seem to have been used very much. 
 
 &#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;
 
 What do you want to do?
 
-[[Keep this box|KeepBox2]]  
+[[Keep this box|KeepBox2]]
+
 [[Leave this box|LeaveBox2]]
+
 [[Have a think about it and look at the other boxes|Step6]]
 </tw-passagedata><tw-passagedata pid="27" name="KeepBox2" tags="" position="625,1325" size="100,100">&lt;&lt;set $box2 = &quot;kept&quot;&gt;&gt;
 &lt;&lt;run $boxesKept.push(&quot;Box2&quot;)&gt;&gt;
@@ -882,31 +810,21 @@ What do you want to do?
 </tw-passagedata><tw-passagedata pid="28" name="LeaveBox2" tags="" position="625,1425" size="100,100">&lt;&lt;set $box2 = &quot;left&quot;&gt;&gt;
 &lt;&lt;run $boxesLeft.push(&quot;Box2&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Step6&quot;&gt;&gt;
-</tw-passagedata><tw-passagedata pid="29" name="Room7" tags="" position="425,750" size="100,100">&lt;&lt;if $visitedRooms.includes(&quot;Room7&quot;)&gt;&gt;
-	You&#39;ve already been here. Redirecting...
-	&lt;&lt;goto &quot;Hub&quot;&gt;&gt;
-&lt;&lt;else&gt;&gt;
-	&lt;&lt;set $visitedRooms.push(&quot;Room7&quot;)&gt;&gt;
-
-	&lt;&lt;set _allRoomsVisited = $visitedRooms.includes(&quot;Room1&quot;) and
-    					     $visitedRooms.includes(&quot;Room2&quot;) and
-	                         $visitedRooms.includes(&quot;Room3&quot;) and
-	                         $visitedRooms.includes(&quot;Room4&quot;) and
-	                         $visitedRooms.includes(&quot;Room5&quot;) and
-                             $visitedRooms.includes(&quot;Room6&quot;) &gt;&gt;
-
+</tw-passagedata><tw-passagedata pid="29" name="Room7" tags="" position="425,750" size="100,100">&lt;&lt;if $visitedRooms.includes(&quot;Room7&quot;)&gt;&gt;&lt;&lt;goto &quot;Hub&quot;&gt;&gt;&lt;&lt;else&gt;&gt;
+&lt;&lt;silent&gt;&gt;	
+    &lt;&lt;set $visitedRooms.push(&quot;Room7&quot;)&gt;&gt;
+	&lt;&lt;set _allRoomsVisited = $visitedRooms.includes(&quot;Room1&quot;) and $visitedRooms.includes(&quot;Room2&quot;) and $visitedRooms.includes(&quot;Room3&quot;) and $visitedRooms.includes(&quot;Room4&quot;) and $visitedRooms.includes(&quot;Room5&quot;) and $visitedRooms.includes(&quot;Room6&quot;) &gt;&gt;
+&lt;&lt;/silent&gt;&gt;
 	&lt;&lt;if _allRoomsVisited&gt;&gt;
     &#39;&#39;Terms of donation&#39;&#39;
 		&lt;&lt;type 60ms&gt;&gt;
 		//&quot;Oh well I don&#39;t know much about these things. What&#39;s the difference between a deposit and a donation? While a purchase might be nice... I&#39;d rather it just went to a good home where people can learn about Ms Famous Footballer.&quot;//
 		&lt;&lt;set $AppraisalKnowledge += 1&gt;&gt;
 		&#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;
-		&lt;&lt;/type&gt;&gt;
-		
-		&lt;&lt;timed 8s&gt;&gt;
+
 		You&#39;ve found out as much as you can for now...  
 		[[Continue the conversation|Step4]]
-		&lt;&lt;/timed&gt;&gt;
+		&lt;&lt;/type&gt;&gt;
 	&lt;&lt;else&gt;&gt;
     &#39;&#39;Terms of donation&#39;&#39;
 		&lt;&lt;type 60ms&gt;&gt;
@@ -927,13 +845,12 @@ What do you want to do?
 &lt;&lt;/if&gt;&gt;
 </tw-passagedata><tw-passagedata pid="30" name="Box5" tags="" position="1000,1100" size="100,100">&#39;&#39;Box 5&#39;&#39;
 &lt;&lt;set $AppraisalKnowledge += 1&gt;&gt;
-Hello, I&#39;m box 5 and I&#39;m here today to talk to you aboutttt....
+This box doesn&#39;t have anything to identify its contents, but it sounds a bit rattly when you pick it up. Inside are bundles of newspapers, as well as stubs of press cuttings. There is also a ring binder full of action shots, presumably of Ms Famous Footballer. Rattling around in the bottom of the box are a few pairs of glasses, as well as some empty and unused notebooks.
 
-&lt;&lt;timed 5s&gt;&gt;&#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;&lt;&lt;/timed&gt;&gt;
+&lt;&lt;timed 6s&gt;&gt;&#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;&lt;&lt;/timed&gt;&gt;
 
-&lt;&lt;timed 6s&gt;&gt;What do you want to do?&lt;&lt;/timed&gt;&gt;
-
-&lt;&lt;timed 8s&gt;&gt;
+&lt;&lt;timed 8s&gt;&gt;What do you want to do?&lt;&lt;/timed&gt;&gt;
+&lt;&lt;timed 10s&gt;&gt;
   [[Take a closer look|Box5.1]]  
   
   [[Keep this box|KeepBox5]]  
@@ -943,13 +860,12 @@ Hello, I&#39;m box 5 and I&#39;m here today to talk to you aboutttt....
   [[Have a think about it and look at the other boxes|Step6]]
 &lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="31" name="Box6" tags="" position="1125,1100" size="100,100">&#39;&#39;Box 6&#39;&#39;
 &lt;&lt;set $AppraisalKnowledge += 1&gt;&gt;
-I&#39;m box 6 and nobody loves me.
+This box is just a crate, open to the elements. You can see there&#39;s a notebook full of handwriting on top, but it&#39;s not in great condition. There is also an old iPod sitting amongst random bits and scrap of paper. There are a few small piles of papers too, but these look mostly like photocopies from books.
 
-&lt;&lt;timed 5s&gt;&gt;&#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;&lt;&lt;/timed&gt;&gt;
+&lt;&lt;timed 6s&gt;&gt;&#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;&lt;&lt;/timed&gt;&gt;
 
-&lt;&lt;timed 6s&gt;&gt;What do you want to do?&lt;&lt;/timed&gt;&gt;
-
-&lt;&lt;timed 8s&gt;&gt;
+&lt;&lt;timed 8s&gt;&gt;What do you want to do?&lt;&lt;/timed&gt;&gt;
+&lt;&lt;timed 10s&gt;&gt;
   [[Take a closer look|Box6.1]]  
   
   [[Keep this box|KeepBox6]]  
@@ -968,14 +884,16 @@ That box isn&#39;t for you
 [[Back to the garage|LeaveBox7]]
 </tw-passagedata><tw-passagedata pid="33" name="Box3.1" tags="" position="750,1225" size="100,100">&#39;&#39;Box 3&#39;&#39;
 &lt;&lt;set $AppraisalKnowledge += 1&gt;&gt;
-You start digging deeper into the box.
+You excavate the posters, most of these seem to be for art exhibitions in Germany. Some of them are torn and are starting to curl at the edges. There are six pairs of old gloves, some of which are starting to disintegrate. They are also quite pungent! The football shirts are all for the national team, with Ms Famous Footballer&#39;s name and number on the back. None of them are signed or have any distinguishing marks, but they appear in good condition. The trophies and medals are loose and rattling around in the bottom of the box. Most seem to actually be from youth tournaments, and there&#39;s no sign of the Gowden Bitt.
 
 &#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;
 
 What do you want to do?
 
-[[Keep this box|KeepBox3]]  
+[[Keep this box|KeepBox3]]
+
 [[Leave this box|LeaveBox3]]
+
 [[Have a think about it and look at the other boxes|Step6]]
 </tw-passagedata><tw-passagedata pid="34" name="KeepBox3" tags="" position="750,1325" size="100,100">&lt;&lt;set $box3 = &quot;kept&quot;&gt;&gt;
 &lt;&lt;run $boxesKept.push(&quot;Box3&quot;)&gt;&gt;
@@ -985,14 +903,16 @@ What do you want to do?
 &lt;&lt;goto &quot;Step6&quot;&gt;&gt;
 </tw-passagedata><tw-passagedata pid="36" name="Box4.1" tags="" position="875,1225" size="100,100">&#39;&#39;Box 4&#39;&#39;
 &lt;&lt;set $AppraisalKnowledge += 1&gt;&gt;
-You start digging deeper into the box.
+You lift out the first accordian file, which mostly contains contracts and other professional correspondence. The two remaining accordian files seem to be a mix of correspondence from friends and fans. The two file boxes looks to be drafts for the potential autobiography that the caller mentioned. The folder beneath this contains research which seems to be related to the autobiography. There are a few loose photographs, perhaps these were meant to be included with the book.
 
 &#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;
 
 What do you want to do?
 
 [[Keep this box|KeepBox4]]  
+
 [[Leave this box|LeaveBox4]]
+
 [[Have a think about it and look at the other boxes|Step6]]
 </tw-passagedata><tw-passagedata pid="37" name="KeepBox4" tags="" position="875,1325" size="100,100">&lt;&lt;set $box4 = &quot;kept&quot;&gt;&gt;
 &lt;&lt;run $boxesKept.push(&quot;Box4&quot;)&gt;&gt;
@@ -1002,14 +922,16 @@ What do you want to do?
 &lt;&lt;goto &quot;Step6&quot;&gt;&gt;
 </tw-passagedata><tw-passagedata pid="39" name="Box5.1" tags="" position="1000,1225" size="100,100">&#39;&#39;Box 5&#39;&#39;
 &lt;&lt;set $AppraisalKnowledge += 1&gt;&gt;
-You start digging deeper into the box.
+The stubs of press cuttings mostly cover the height of Ms Famous Footballer&#39;s career, with extensive coverage of winning the Gowden Bitt. There are entire issues of newspapers, presumably these feature stories about Ms Famous Footballer. The ring binder contains photographs taken throughout her career, with some group team photographs. It&#39;s not always clear who the photographer was though, as most of them don&#39;t have stamps or markings. The glasses presumably all belong to Ms Famous Footballer, one set has a leg missing, and another set has a broken lens.
 
 &#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;
 
 What do you want to do?
 
-[[Keep this box|KeepBox5]]  
+[[Keep this box|KeepBox5]]
+
 [[Leave this box|LeaveBox5]]
+
 [[Have a think about it and look at the other boxes|Step6]]
 </tw-passagedata><tw-passagedata pid="40" name="KeepBox5" tags="" position="1000,1325" size="100,100">&lt;&lt;set $box5 = &quot;kept&quot;&gt;&gt;
 &lt;&lt;run $boxesKept.push(&quot;Box5&quot;)&gt;&gt;
@@ -1019,14 +941,16 @@ What do you want to do?
 &lt;&lt;goto &quot;Step6&quot;&gt;&gt;
 </tw-passagedata><tw-passagedata pid="42" name="Box6.1" tags="" position="1125,1225" size="100,100">&#39;&#39;Box 6&#39;&#39;
 &lt;&lt;set $AppraisalKnowledge += 1&gt;&gt;
-You start digging deeper into the box.
+The notebook contains notes on strategy and tactics for football, with a few diagrams and formation scenarios. The pages have been damaged by water at some point, leaving quite a lot of the writing illegible. The iPod seems like a random addition to this box, did it even belong to Ms Famous Footballer? There&#39;s no cables for it, and it&#39;s not clear if it even works still. The random scraps of paper dotted around the box seem to be used as scrap with things like phone numbers and addressed jotted down. The remaining loose papers are all photocopies from printed books, some on football, but others on graphic design.
 
 &#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;
 
 What do you want to do?
 
 [[Keep this box|KeepBox6]]  
+
 [[Leave this box|LeaveBox6]]
+
 [[Have a think about it and look at the other boxes|Step6]]
 </tw-passagedata><tw-passagedata pid="43" name="KeepBox6" tags="" position="1125,1325" size="100,100">&lt;&lt;set $box6 = &quot;kept&quot;&gt;&gt;
 &lt;&lt;run $boxesKept.push(&quot;Box6&quot;)&gt;&gt;
@@ -1038,12 +962,14 @@ What do you want to do?
 &lt;&lt;run $forcedLeaveBox.push(&quot;Box7&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Step6&quot;&gt;&gt;
 </tw-passagedata><tw-passagedata pid="46" name="Step8" tags="" position="875,1550" size="100,100">&lt;&lt;type 60ms&gt;&gt;
-You are back at the archive with the boxes you decided to keep. A donation agreement has been signed, and you&#39;ve set aside some time to go through the boxes in more detail.
+You are back at the archive with the boxes you decided to keep, and a donation agreement has been signed.
 
 While the information you&#39;ve been able to gather so far has been useful, there is no summary or list of contents supplied by the donor, and no apparent order or arrangement.
 
+You&#39;ve done some research about Ms Famous Footballer and you&#39;ve set aside some time to go through the boxes in more detail. There are still opportunities for appraisal, and items can be disposed of or offered for return to the donor.
+
 &#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;
-&lt;&lt;/type&gt;&gt;&lt;&lt;timed 25s&gt;&gt;
+&lt;&lt;/type&gt;&gt;&lt;&lt;timed 36s&gt;&gt;
 [[Look through the boxes|Step9]]
 &lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="47" name="Step9" tags="" position="1000,1550" size="100,100">&lt;div class=&quot;box-ui&quot;&gt;
   &lt;&lt;set _allDone = true&gt;&gt;
@@ -1101,7 +1027,7 @@ While the information you&#39;ve been able to gather so far has been useful, the
 
 &lt;&lt;if _allDone&gt;&gt;
   &lt;p style=&quot;margin-top: 1em;&quot;&gt;
-    &lt;&lt;link &quot;Continue to AllBoxesComplete&quot;&gt;&gt;
+    &lt;&lt;link &quot;Continue...&quot;&gt;&gt;
       &lt;&lt;goto &quot;AllBoxesComplete&quot;&gt;&gt;
     &lt;&lt;/link&gt;&gt;
   &lt;/p&gt;
@@ -1112,7 +1038,7 @@ While the information you&#39;ve been able to gather so far has been useful, the
 &lt;&lt;if $itemDecisions and !$itemDecisions[&quot;Box1_Item1&quot;]&gt;&gt;
   &lt;a href=&quot;javascript:void(0);&quot; onclick=&quot;SugarCube.Engine.play(&#39;Box1_Item1&#39;)&quot;&gt;
     &lt;img src=&quot;https://raw.githubusercontent.com/JamTost/archivestory/main/images/old04.svg&quot; alt=&quot;Item 1&quot; /&gt;
-    &lt;div class=&quot;box-label&quot;&gt;Bundles of diaries&lt;/div&gt;
+    &lt;div class=&quot;box-label&quot;&gt;Diaries&lt;/div&gt;
   &lt;/a&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;if $itemDecisions and !$itemDecisions[&quot;Box1_Item2&quot;]&gt;&gt;
@@ -1149,19 +1075,19 @@ While the information you&#39;ve been able to gather so far has been useful, the
 &lt;&lt;if $itemDecisions and !$itemDecisions[&quot;Box2_Item1&quot;]&gt;&gt;
   &lt;a href=&quot;javascript:void(0);&quot; onclick=&quot;SugarCube.Engine.play(&#39;Box2_Item1&#39;)&quot;&gt;
     &lt;img src=&quot;https://raw.githubusercontent.com/JamTost/archivestory/main/images/RecipeBook.svg&quot; alt=&quot;Item 1&quot; /&gt;
-    &lt;div class=&quot;box-label&quot;&gt;Recipe book&lt;/div&gt;
+    &lt;div class=&quot;box-label&quot;&gt;Recipe books&lt;/div&gt;
   &lt;/a&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;if $itemDecisions and !$itemDecisions[&quot;Box2_Item2&quot;]&gt;&gt;
 &lt;a href=&quot;javascript:void(0);&quot; onclick=&quot;SugarCube.Engine.play(&#39;Box2_Item2&#39;)&quot; style=&quot;display: block; text-align: center;&quot;&gt;
     &lt;img src=&quot;https://raw.githubusercontent.com/JamTost/archivestory/main/images/johnny-automatic-binder-folder.svg&quot; alt=&quot;Item 2&quot; style=&quot;display: inline-block;&quot; /&gt;
-    &lt;div class=&quot;box-label&quot;&gt;Financial and household papers&lt;/div&gt;
+    &lt;div class=&quot;box-label&quot;&gt;Financial papers&lt;/div&gt;
   &lt;/a&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;if $itemDecisions and !$itemDecisions[&quot;Box2_Item3&quot;]&gt;&gt;
   &lt;a href=&quot;javascript:void(0);&quot; onclick=&quot;SugarCube.Engine.play(&#39;Box2_Item3&#39;)&quot; style=&quot;display: block; text-align: center;&quot;&gt;
     &lt;img src=&quot;https://raw.githubusercontent.com/JamTost/archivestory/main/images/paperback-stack.svg&quot; alt=&quot;Item 3&quot; style=&quot;display: inline-block;&quot; /&gt;
-    &lt;div class=&quot;box-label&quot;&gt;Books written about Ms Famous Footballer&lt;/div&gt;
+    &lt;div class=&quot;box-label&quot;&gt;Books&lt;/div&gt;
   &lt;/a&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;if $itemDecisions and !$itemDecisions[&quot;Box2_Item4&quot;]&gt;&gt;
@@ -1186,7 +1112,7 @@ While the information you&#39;ve been able to gather so far has been useful, the
 &lt;&lt;if $itemDecisions and !$itemDecisions[&quot;Box3_Item1&quot;]&gt;&gt;
   &lt;a href=&quot;javascript:void(0);&quot; onclick=&quot;SugarCube.Engine.play(&#39;Box3_Item1&#39;)&quot;&gt;
     &lt;img src=&quot;https://raw.githubusercontent.com/JamTost/archivestory/main/images/Posters1977-1988-No-17.svg&quot; alt=&quot;Item 1&quot; /&gt;
-    &lt;div class=&quot;box-label&quot;&gt;Poster&lt;/div&gt;
+    &lt;div class=&quot;box-label&quot;&gt;Posters&lt;/div&gt;
   &lt;/a&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;if $itemDecisions and !$itemDecisions[&quot;Box3_Item2&quot;]&gt;&gt;
@@ -1198,13 +1124,13 @@ While the information you&#39;ve been able to gather so far has been useful, the
 &lt;&lt;if $itemDecisions and !$itemDecisions[&quot;Box3_Item3&quot;]&gt;&gt;
   &lt;a href=&quot;javascript:void(0);&quot; onclick=&quot;SugarCube.Engine.play(&#39;Box3_Item3&#39;)&quot;&gt;
     &lt;img src=&quot;https://raw.githubusercontent.com/JamTost/archivestory/main/images/Blue-Polo-Shirt-Remix-by-Merlin2525.svg&quot; alt=&quot;Item 3&quot; /&gt;
-    &lt;div class=&quot;box-label&quot;&gt;Football shirt&lt;/div&gt;
+    &lt;div class=&quot;box-label&quot;&gt;Football shirts&lt;/div&gt;
   &lt;/a&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;if $itemDecisions and !$itemDecisions[&quot;Box3_Item4&quot;]&gt;&gt;
   &lt;a href=&quot;javascript:void(0);&quot; onclick=&quot;SugarCube.Engine.play(&#39;Box3_Item4&#39;)&quot;&gt;
     &lt;img src=&quot;https://raw.githubusercontent.com/JamTost/archivestory/main/images/trophy.svg&quot; alt=&quot;Item 4&quot; /&gt;
-    &lt;div class=&quot;box-label&quot;&gt;Trohpy and medals&lt;/div&gt;
+    &lt;div class=&quot;box-label&quot;&gt;Medals&lt;/div&gt;
   &lt;/a&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;/div&gt;
@@ -1229,13 +1155,13 @@ While the information you&#39;ve been able to gather so far has been useful, the
 &lt;&lt;if $itemDecisions and !$itemDecisions[&quot;Box4_Item2&quot;]&gt;&gt;
 &lt;a href=&quot;javascript:void(0);&quot; onclick=&quot;SugarCube.Engine.play(&#39;Box4_Item2&#39;)&quot;&gt;
     &lt;img src=&quot;https://raw.githubusercontent.com/JamTost/archivestory/main/images/johnny-automatic-box-file.svg&quot; alt=&quot;Item 2&quot; /&gt;
-    &lt;div class=&quot;box-label&quot;&gt;Drafts of writing&lt;/div&gt;
+    &lt;div class=&quot;box-label&quot;&gt;Drafts&lt;/div&gt;
   &lt;/a&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;if $itemDecisions and !$itemDecisions[&quot;Box4_Item3&quot;]&gt;&gt;
   &lt;a href=&quot;javascript:void(0);&quot; onclick=&quot;SugarCube.Engine.play(&#39;Box4_Item3&#39;)&quot; style=&quot;display: block; text-align: center;&quot;&gt;
     &lt;img src=&quot;https://raw.githubusercontent.com/JamTost/archivestory/main/images/old02.svg&quot; alt=&quot;Item 3&quot; style=&quot;display: inline-block;&quot; /&gt;
-    &lt;div class=&quot;box-label&quot;&gt;Loose bundle of notes and research&lt;/div&gt;
+    &lt;div class=&quot;box-label&quot;&gt;Research notes&lt;/div&gt;
   &lt;/a&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;if $itemDecisions and !$itemDecisions[&quot;Box4_Item4&quot;]&gt;&gt;
@@ -1272,7 +1198,7 @@ While the information you&#39;ve been able to gather so far has been useful, the
 &lt;&lt;if $itemDecisions and !$itemDecisions[&quot;Box5_Item3&quot;]&gt;&gt;
   &lt;a href=&quot;javascript:void(0);&quot; onclick=&quot;SugarCube.Engine.play(&#39;Box5_Item3&#39;)&quot;&gt;
     &lt;img src=&quot;https://raw.githubusercontent.com/JamTost/archivestory/main/images/Books-2.svg&quot; alt=&quot;Item 3&quot; /&gt;
-    &lt;div class=&quot;box-label&quot;&gt;Address books&lt;/div&gt;
+    &lt;div class=&quot;box-label&quot;&gt;Notebooks&lt;/div&gt;
   &lt;/a&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;if $itemDecisions and !$itemDecisions[&quot;Box5_Item4&quot;]&gt;&gt;
@@ -1297,7 +1223,7 @@ While the information you&#39;ve been able to gather so far has been useful, the
 &lt;&lt;if $itemDecisions and !$itemDecisions[&quot;Box6_Item1&quot;]&gt;&gt;
   &lt;a href=&quot;javascript:void(0);&quot; onclick=&quot;SugarCube.Engine.play(&#39;Box6_Item1&#39;)&quot;&gt;
     &lt;img src=&quot;https://raw.githubusercontent.com/JamTost/archivestory/main/images/sketchbook01.svg&quot; alt=&quot;Item 1&quot; /&gt;
-    &lt;div class=&quot;box-label&quot;&gt;Strategy notes&lt;/div&gt;
+    &lt;div class=&quot;box-label&quot;&gt;Notes&lt;/div&gt;
   &lt;/a&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;if $itemDecisions and !$itemDecisions[&quot;Box6_Item2&quot;]&gt;&gt;
@@ -1315,7 +1241,7 @@ While the information you&#39;ve been able to gather so far has been useful, the
 &lt;&lt;if $itemDecisions and !$itemDecisions[&quot;Box6_Item4&quot;]&gt;&gt;
   &lt;a href=&quot;javascript:void(0);&quot; onclick=&quot;SugarCube.Engine.play(&#39;Box6_Item4&#39;)&quot;&gt;
     &lt;img src=&quot;https://raw.githubusercontent.com/JamTost/archivestory/main/images/alpine-landscape-juju-grandma-papers-01a-al1.svg&quot; alt=&quot;Item 4&quot; /&gt;
-    &lt;div class=&quot;box-label&quot;&gt;Assorted loose papers&lt;/div&gt;
+    &lt;div class=&quot;box-label&quot;&gt;Loose papers&lt;/div&gt;
   &lt;/a&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;/div&gt;
@@ -1330,12 +1256,16 @@ While the information you&#39;ve been able to gather so far has been useful, the
 &lt;&lt;/if&gt;&gt;
 
 
-</tw-passagedata><tw-passagedata pid="54" name="Box1_Item1" tags="" position="500,1775" size="100,100">This is a small leather-bound diary. The first entry is dated 1962.
+</tw-passagedata><tw-passagedata pid="54" name="Box1_Item1" tags="" position="500,1775" size="100,100">&#39;&#39;Diaries&#39;&#39;
+
+Fill in some information about the diaries.
 
 What do you want to do?
 
 [[Keep this item|Keep_Box1_Item1]]
+
 [[Leave this item|Leave_Box1_Item1]]
+
 [[Decide later|Box1Explore]]</tw-passagedata><tw-passagedata pid="55" name="Keep_Box1_Item1" tags="" position="500,1800" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box1_Item1&quot;] = &quot;kept&quot;&gt;&gt;
 &lt;&lt;run $itemsKept.push(&quot;Box1_Item1&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box1Explore&quot;&gt;&gt;
@@ -1346,288 +1276,380 @@ What do you want to do?
 
 &#39;&#39;Appraisal knowledge: $AppraisalKnowledge&#39;&#39;
 
-These kinds of decisions can be affected by a number of factors, such as:
-collecting policies
-evidential and informational value
-research potential
-historical and cultural significance
-physical condition and conservation needs
-duplication
-
-Each archive will have its own parameters for appraisal decisions, and every collection will require different appraisal decisions to be made, no two collections are the same!
+Each archive will have its own parameters for appraisal decisions. These kinds of decisions can be affected by a number of factors, such as:&lt;ul&gt;
+  &lt;li&gt;Collecting policies&lt;/li&gt;
+  &lt;li&gt;Evidential and informational value&lt;/li&gt;
+  &lt;li&gt;Research potential&lt;/li&gt;
+  &lt;li&gt;Historical and cultural significance&lt;/li&gt;
+  &lt;li&gt;Physical condition and conservation needs&lt;/li&gt;
+  &lt;li&gt;Duplication&lt;/li&gt;
+&lt;/ul&gt;
+Every collection will require different appraisal decisions to be made, no two collections are the same!
 
 [[Go to final summary|Step10]]
 
-&lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="58" name="Box1_Item2" tags="" position="500,1850" size="100,100">This is a small leather-bound diary. The first entry is dated 1962.
+&lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="58" name="Box1_Item2" tags="" position="500,1850" size="100,100">&#39;&#39;More diaires&#39;&#39;
+
+Fill in information about the more diaries.
 
 What do you want to do?
 
 [[Keep this item|Keep_Box1_Item2]]
+
 [[Leave this item|Leave_Box1_Item2]]
+
 [[Decide later|Box1Explore]]
 </tw-passagedata><tw-passagedata pid="59" name="Leave_Box1_Item2" tags="" position="500,1900" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box1_Item2&quot;] = &quot;left&quot;&gt;&gt;
 &lt;&lt;run $itemsLeft.push(&quot;Box1_Item2&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box1Explore&quot;&gt;&gt;
 </tw-passagedata><tw-passagedata pid="60" name="Keep_Box1_Item2" tags="" position="500,1875" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box1_Item2&quot;] = &quot;kept&quot;&gt;&gt;
 &lt;&lt;run $itemsKept.push(&quot;Box1_Item2&quot;)&gt;&gt;
-&lt;&lt;goto &quot;Box1Explore&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="61" name="Box1_Item3" tags="" position="500,1925" size="100,100">This is a small leather-bound diary. The first entry is dated 1962.
+&lt;&lt;goto &quot;Box1Explore&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="61" name="Box1_Item3" tags="" position="500,1925" size="100,100">&#39;&#39;Correspondence&#39;&#39;
+
+Fill in information about the correspondence
 
 What do you want to do?
 
 [[Keep this item|Keep_Box1_Item3]]
+
 [[Leave this item|Leave_Box1_Item3]]
+
 [[Decide later|Box1Explore]]
 </tw-passagedata><tw-passagedata pid="62" name="Keep_Box1_Item3" tags="" position="500,1950" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box1_Item3&quot;] = &quot;kept&quot;&gt;&gt;
 &lt;&lt;run $itemsKept.push(&quot;Box1_Item3&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box1Explore&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="63" name="Leave_Box1_Item3" tags="" position="500,1975" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box1_Item3&quot;] = &quot;left&quot;&gt;&gt;
 &lt;&lt;run $itemsLeft.push(&quot;Box1_Item3&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box1Explore&quot;&gt;&gt;
-</tw-passagedata><tw-passagedata pid="64" name="Box1_Item4" tags="" position="500,2000" size="100,100">This is a small leather-bound diary. The first entry is dated 1962.
+</tw-passagedata><tw-passagedata pid="64" name="Box1_Item4" tags="" position="500,2000" size="100,100">&#39;&#39;Magazines&#39;&#39;
+
+Fill in information about the magazines
 
 What do you want to do?
 
 [[Keep this item|Keep_Box1_Item4]]
+
 [[Leave this item|Leave_Box1_Item4]]
+
 [[Decide later|Box1Explore]]
 </tw-passagedata><tw-passagedata pid="65" name="Keep_Box1_Item4" tags="" position="500,2025" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box1_Item4&quot;] = &quot;kept&quot;&gt;&gt;
 &lt;&lt;run $itemsKept.push(&quot;Box1_Item4&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box1Explore&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="66" name="Leave_Box1_Item4" tags="" position="500,2050" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box1_Item4&quot;] = &quot;left&quot;&gt;&gt;
 &lt;&lt;run $itemsLeft.push(&quot;Box1_Item4&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box1Explore&quot;&gt;&gt;
-</tw-passagedata><tw-passagedata pid="67" name="Box2_Item1" tags="" position="625,1775" size="100,100">This is a small leather-bound diary. The first entry is dated 1962.
+</tw-passagedata><tw-passagedata pid="67" name="Box2_Item1" tags="" position="625,1775" size="100,100">&#39;&#39;Recipe books&#39;&#39;
+
+Fill in information about the recipe books
 
 What do you want to do?
 
 [[Keep this item|Keep_Box2_Item1]]
+
 [[Leave this item|Leave_Box2_Item1]]
+
 [[Decide later|Box2Explore]]</tw-passagedata><tw-passagedata pid="68" name="Keep_Box2_Item1" tags="" position="625,1800" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box2_Item1&quot;] = &quot;kept&quot;&gt;&gt;
 &lt;&lt;run $itemsKept.push(&quot;Box2_Item1&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box2Explore&quot;&gt;&gt;
 </tw-passagedata><tw-passagedata pid="69" name="Leave_Box2_Item1" tags="" position="625,1825" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box2_Item1&quot;] = &quot;left&quot;&gt;&gt;
 &lt;&lt;run $itemsLeft.push(&quot;Box2_Item1&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box2Explore&quot;&gt;&gt;
-</tw-passagedata><tw-passagedata pid="70" name="Box2_Item2" tags="" position="625,1850" size="100,100">This is a small leather-bound diary. The first entry is dated 1962.
+</tw-passagedata><tw-passagedata pid="70" name="Box2_Item2" tags="" position="625,1850" size="100,100">&#39;&#39;Financial papers&#39;&#39;
+
+Fill in information about the financial papers
 
 What do you want to do?
 
 [[Keep this item|Keep_Box2_Item2]]
+
 [[Leave this item|Leave_Box2_Item2]]
+
 [[Decide later|Box2Explore]]</tw-passagedata><tw-passagedata pid="71" name="Leave_Box2_Item2" tags="" position="625,1900" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box2_Item2&quot;] = &quot;left&quot;&gt;&gt;
 &lt;&lt;run $itemsLeft.push(&quot;Box2_Item2&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box2Explore&quot;&gt;&gt;
 </tw-passagedata><tw-passagedata pid="72" name="Keep_Box2_Item2" tags="" position="625,1875" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box2_Item2&quot;] = &quot;kept&quot;&gt;&gt;
 &lt;&lt;run $itemsKept.push(&quot;Box2_Item2&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box2Explore&quot;&gt;&gt;
-</tw-passagedata><tw-passagedata pid="73" name="Box2_Item3" tags="" position="625,1925" size="100,100">This is a small leather-bound diary. The first entry is dated 1962.
+</tw-passagedata><tw-passagedata pid="73" name="Box2_Item3" tags="" position="625,1925" size="100,100">&#39;&#39;Books&#39;&#39;
+
+Fill in information about the books
 
 What do you want to do?
 
 [[Keep this item|Keep_Box2_Item3]]
+
 [[Leave this item|Leave_Box2_Item3]]
+
 [[Decide later|Box2Explore]]</tw-passagedata><tw-passagedata pid="74" name="Keep_Box2_Item3" tags="" position="625,1950" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box2_Item3&quot;] = &quot;kept&quot;&gt;&gt;
 &lt;&lt;run $itemsKept.push(&quot;Box2_Item3&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box2Explore&quot;&gt;&gt;
 </tw-passagedata><tw-passagedata pid="75" name="Leave_Box2_Item3" tags="" position="625,1975" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box2_Item3&quot;] = &quot;left&quot;&gt;&gt;
 &lt;&lt;run $itemsLeft.push(&quot;Box2_Item3&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box2Explore&quot;&gt;&gt;
-</tw-passagedata><tw-passagedata pid="76" name="Box2_Item4" tags="" position="625,2000" size="100,100">This is a small leather-bound diary. The first entry is dated 1962.
+</tw-passagedata><tw-passagedata pid="76" name="Box2_Item4" tags="" position="625,2000" size="100,100">&#39;&#39;SD card&#39;&#39;
+
+Fill in information about the SD card
 
 What do you want to do?
 
 [[Keep this item|Keep_Box2_Item4]]
+
 [[Leave this item|Leave_Box2_Item4]]
+
 [[Decide later|Box2Explore]]</tw-passagedata><tw-passagedata pid="77" name="Leave_Box2_Item4" tags="" position="625,2050" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box2_Item4&quot;] = &quot;left&quot;&gt;&gt;
 &lt;&lt;run $itemsLeft.push(&quot;Box2_Item4&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box2Explore&quot;&gt;&gt;
 </tw-passagedata><tw-passagedata pid="78" name="Keep_Box2_Item4" tags="" position="625,2025" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box2_Item4&quot;] = &quot;kept&quot;&gt;&gt;
 &lt;&lt;run $itemsKept.push(&quot;Box2_Item4&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box2Explore&quot;&gt;&gt;
-</tw-passagedata><tw-passagedata pid="79" name="Box3_Item1" tags="" position="750,1775" size="100,100">This is a small leather-bound diary. The first entry is dated 1962.
+</tw-passagedata><tw-passagedata pid="79" name="Box3_Item1" tags="" position="750,1775" size="100,100">&#39;&#39;Posters&#39;&#39;
+
+Fill in information about the posters
 
 What do you want to do?
 
 [[Keep this item|Keep_Box3_Item1]]
+
 [[Leave this item|Leave_Box3_Item1]]
+
 [[Decide later|Box3Explore]]</tw-passagedata><tw-passagedata pid="80" name="Keep_Box3_Item1" tags="" position="750,1800" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box3_Item1&quot;] = &quot;kept&quot;&gt;&gt;
 &lt;&lt;run $itemsKept.push(&quot;Box3_Item1&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box3Explore&quot;&gt;&gt;
 </tw-passagedata><tw-passagedata pid="81" name="Leave_Box3_Item1" tags="" position="750,1825" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box3_Item1&quot;] = &quot;left&quot;&gt;&gt;
 &lt;&lt;run $itemsLeft.push(&quot;Box3_Item1&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box3Explore&quot;&gt;&gt;
-</tw-passagedata><tw-passagedata pid="82" name="Box3_Item2" tags="" position="750,1850" size="100,100">This is a small leather-bound diary. The first entry is dated 1962.
+</tw-passagedata><tw-passagedata pid="82" name="Box3_Item2" tags="" position="750,1850" size="100,100">&#39;&#39;Gloves&#39;&#39;
+
+Fill in information about the gloves
 
 What do you want to do?
 
 [[Keep this item|Keep_Box3_Item2]]
+
 [[Leave this item|Leave_Box3_Item2]]
+
 [[Decide later|Box3Explore]]</tw-passagedata><tw-passagedata pid="83" name="Leave_Box3_Item2" tags="" position="750,1900" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box3_Item2&quot;] = &quot;left&quot;&gt;&gt;
 &lt;&lt;run $itemsLeft.push(&quot;Box3_Item2&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box3Explore&quot;&gt;&gt;
 </tw-passagedata><tw-passagedata pid="84" name="Keep_Box3_Item2" tags="" position="750,1875" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box3_Item2&quot;] = &quot;kept&quot;&gt;&gt;
 &lt;&lt;run $itemsKept.push(&quot;Box3_Item2&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box3Explore&quot;&gt;&gt;
-</tw-passagedata><tw-passagedata pid="85" name="Box3_Item3" tags="" position="750,1925" size="100,100">This is a small leather-bound diary. The first entry is dated 1962.
+</tw-passagedata><tw-passagedata pid="85" name="Box3_Item3" tags="" position="750,1925" size="100,100">&#39;&#39;Football shirts&#39;&#39;
+
+Fill in information about the football shirts
 
 What do you want to do?
 
 [[Keep this item|Keep_Box3_Item3]]
+
 [[Leave this item|Leave_Box3_Item3]]
+
 [[Decide later|Box3Explore]]</tw-passagedata><tw-passagedata pid="86" name="Keep_Box3_Item3" tags="" position="750,1950" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box3_Item3&quot;] = &quot;kept&quot;&gt;&gt;
 &lt;&lt;run $itemsKept.push(&quot;Box3_Item3&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box3Explore&quot;&gt;&gt;
 </tw-passagedata><tw-passagedata pid="87" name="Leave_Box3_Item3" tags="" position="750,1975" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box3_Item3&quot;] = &quot;left&quot;&gt;&gt;
 &lt;&lt;run $itemsLeft.push(&quot;Box3_Item3&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box3Explore&quot;&gt;&gt;
-</tw-passagedata><tw-passagedata pid="88" name="Box3_Item4" tags="" position="750,2000" size="100,100">This is a small leather-bound diary. The first entry is dated 1962.
+</tw-passagedata><tw-passagedata pid="88" name="Box3_Item4" tags="" position="750,2000" size="100,100">&#39;&#39;Medals&#39;&#39;
+
+Fill in information about the medals
 
 What do you want to do?
 
 [[Keep this item|Keep_Box3_Item4]]
+
 [[Leave this item|Leave_Box3_Item4]]
+
 [[Decide later|Box3Explore]]</tw-passagedata><tw-passagedata pid="89" name="Leave_Box3_Item4" tags="" position="750,2050" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box3_Item4&quot;] = &quot;left&quot;&gt;&gt;
 &lt;&lt;run $itemsLeft.push(&quot;Box3_Item4&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box3Explore&quot;&gt;&gt;
 </tw-passagedata><tw-passagedata pid="90" name="Keep_Box3_Item4" tags="" position="750,2025" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box3_Item4&quot;] = &quot;kept&quot;&gt;&gt;
 &lt;&lt;run $itemsKept.push(&quot;Box3_Item4&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box3Explore&quot;&gt;&gt;
-</tw-passagedata><tw-passagedata pid="91" name="Box4_Item1" tags="" position="875,1775" size="100,100">This is a small leather-bound diary. The first entry is dated 1962.
+</tw-passagedata><tw-passagedata pid="91" name="Box4_Item1" tags="" position="875,1775" size="100,100">&#39;&#39;Correspondence&#39;&#39;
+
+Fill in more information about the correspondence
 
 What do you want to do?
 
 [[Keep this item|Keep_Box4_Item1]]
+
 [[Leave this item|Leave_Box4_Item1]]
+
 [[Decide later|Box4Explore]]</tw-passagedata><tw-passagedata pid="92" name="Keep_Box4_Item1" tags="" position="875,1800" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box4_Item1&quot;] = &quot;kept&quot;&gt;&gt;
 &lt;&lt;run $itemsKept.push(&quot;Box4_Item1&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box4Explore&quot;&gt;&gt;
 </tw-passagedata><tw-passagedata pid="93" name="Leave_Box4_Item1" tags="" position="875,1825" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box4_Item1&quot;] = &quot;left&quot;&gt;&gt;
 &lt;&lt;run $itemsLeft.push(&quot;Box4_Item1&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box4Explore&quot;&gt;&gt;
-</tw-passagedata><tw-passagedata pid="94" name="Box4_Item2" tags="" position="875,1850" size="100,100">This is a small leather-bound diary. The first entry is dated 1962.
+</tw-passagedata><tw-passagedata pid="94" name="Box4_Item2" tags="" position="875,1850" size="100,100">&#39;&#39;Drafts&#39;&#39;
+
+Fill in more information about the drafts
 
 What do you want to do?
 
 [[Keep this item|Keep_Box4_Item2]]
+
 [[Leave this item|Leave_Box4_Item2]]
+
 [[Decide later|Box4Explore]]</tw-passagedata><tw-passagedata pid="95" name="Keep_Box4_Item2" tags="" position="875,1875" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box4_Item2&quot;] = &quot;kept&quot;&gt;&gt;
 &lt;&lt;run $itemsKept.push(&quot;Box4_Item2&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box4Explore&quot;&gt;&gt;
 </tw-passagedata><tw-passagedata pid="96" name="Leave_Box4_Item2" tags="" position="875,1900" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box4_Item2&quot;] = &quot;left&quot;&gt;&gt;
 &lt;&lt;run $itemsLeft.push(&quot;Box4_Item2&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box4Explore&quot;&gt;&gt;
-</tw-passagedata><tw-passagedata pid="97" name="Box4_Item3" tags="" position="875,1925" size="100,100">This is a small leather-bound diary. The first entry is dated 1962.
+</tw-passagedata><tw-passagedata pid="97" name="Box4_Item3" tags="" position="875,1925" size="100,100">&#39;&#39;Research notes&#39;&#39;
+
+Fill in more information about the research notes
 
 What do you want to do?
 
 [[Keep this item|Keep_Box4_Item3]]
+
 [[Leave this item|Leave_Box4_Item3]]
+
 [[Decide later|Box4Explore]]</tw-passagedata><tw-passagedata pid="98" name="Keep_Box4_Item3" tags="" position="875,1950" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box4_Item3&quot;] = &quot;kept&quot;&gt;&gt;
 &lt;&lt;run $itemsKept.push(&quot;Box4_Item3&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box4Explore&quot;&gt;&gt;
 </tw-passagedata><tw-passagedata pid="99" name="Leave_Box4_Item3" tags="" position="875,1975" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box4_Item3&quot;] = &quot;left&quot;&gt;&gt;
 &lt;&lt;run $itemsLeft.push(&quot;Box4_Item3&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box4Explore&quot;&gt;&gt;
-</tw-passagedata><tw-passagedata pid="100" name="Box4_Item4" tags="" position="875,2000" size="100,100">This is a small leather-bound diary. The first entry is dated 1962.
+</tw-passagedata><tw-passagedata pid="100" name="Box4_Item4" tags="" position="875,2000" size="100,100">&#39;&#39;Photographs&#39;&#39;
+
+Fill in more information about the photographs
 
 What do you want to do?
 
 [[Keep this item|Keep_Box4_Item4]]
+
 [[Leave this item|Leave_Box4_Item4]]
+
 [[Decide later|Box4Explore]]</tw-passagedata><tw-passagedata pid="101" name="Keep_Box4_Item4" tags="" position="875,2025" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box4_Item4&quot;] = &quot;kept&quot;&gt;&gt;
 &lt;&lt;run $itemsKept.push(&quot;Box4_Item4&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box4Explore&quot;&gt;&gt;
 </tw-passagedata><tw-passagedata pid="102" name="Leave_Box4_Item4" tags="" position="875,2050" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box4_Item4&quot;] = &quot;left&quot;&gt;&gt;
 &lt;&lt;run $itemsLeft.push(&quot;Box4_Item4&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box4Explore&quot;&gt;&gt;
-</tw-passagedata><tw-passagedata pid="103" name="Box5_Item1" tags="" position="1000,1775" size="100,100">This is a small leather-bound diary. The first entry is dated 1962.
+</tw-passagedata><tw-passagedata pid="103" name="Box5_Item1" tags="" position="1000,1775" size="100,100">&#39;&#39;Newspapers&#39;&#39;
+
+Fill in more information about the newspapers
 
 What do you want to do?
 
 [[Keep this item|Keep_Box5_Item1]]
+
 [[Leave this item|Leave_Box5_Item1]]
+
 [[Decide later|Box5Explore]]</tw-passagedata><tw-passagedata pid="104" name="Keep_Box5_Item1" tags="" position="1000,1800" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box5_Item1&quot;] = &quot;kept&quot;&gt;&gt;
 &lt;&lt;run $itemsKept.push(&quot;Box5_Item1&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box5Explore&quot;&gt;&gt;
 </tw-passagedata><tw-passagedata pid="105" name="Leave_Box5_Item1" tags="" position="1000,1825" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box5_Item1&quot;] = &quot;left&quot;&gt;&gt;
 &lt;&lt;run $itemsLeft.push(&quot;Box5_Item1&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box5Explore&quot;&gt;&gt;
-</tw-passagedata><tw-passagedata pid="106" name="Box5_Item2" tags="" position="1000,1850" size="100,100">This is a small leather-bound diary. The first entry is dated 1962.
+</tw-passagedata><tw-passagedata pid="106" name="Box5_Item2" tags="" position="1000,1850" size="100,100">&#39;&#39;Glasses&#39;&#39;
+
+Fill in more information about the glasses
 
 What do you want to do?
 
 [[Keep this item|Keep_Box5_Item2]]
+
 [[Leave this item|Leave_Box5_Item2]]
+
 [[Decide later|Box5Explore]]</tw-passagedata><tw-passagedata pid="107" name="Keep_Box5_Item2" tags="" position="1000,1875" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box5_Item2&quot;] = &quot;kept&quot;&gt;&gt;
 &lt;&lt;run $itemsKept.push(&quot;Box5_Item2&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box5Explore&quot;&gt;&gt;
 </tw-passagedata><tw-passagedata pid="108" name="Leave_Box5_Item2" tags="" position="1000,1900" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box5_Item2&quot;] = &quot;left&quot;&gt;&gt;
 &lt;&lt;run $itemsLeft.push(&quot;Box5_Item2&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box5Explore&quot;&gt;&gt;
-</tw-passagedata><tw-passagedata pid="109" name="Box5_Item3" tags="" position="1000,1925" size="100,100">This is a small leather-bound diary. The first entry is dated 1962.
+</tw-passagedata><tw-passagedata pid="109" name="Box5_Item3" tags="" position="1000,1925" size="100,100">&#39;&#39;Notebooks&#39;&#39;
+
+Fill in more information about the notebooks
 
 What do you want to do?
 
 [[Keep this item|Keep_Box5_Item3]]
+
 [[Leave this item|Leave_Box5_Item3]]
+
 [[Decide later|Box5Explore]]</tw-passagedata><tw-passagedata pid="110" name="Keep_Box5_Item3" tags="" position="1000,1950" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box5_Item3&quot;] = &quot;kept&quot;&gt;&gt;
 &lt;&lt;run $itemsKept.push(&quot;Box5_Item3&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box5Explore&quot;&gt;&gt;
 </tw-passagedata><tw-passagedata pid="111" name="Leave_Box5_Item3" tags="" position="1000,1975" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box5_Item3&quot;] = &quot;left&quot;&gt;&gt;
 &lt;&lt;run $itemsLeft.push(&quot;Box5_Item3&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box5Explore&quot;&gt;&gt;
-</tw-passagedata><tw-passagedata pid="112" name="Box5_Item4" tags="" position="1000,2000" size="100,100">This is a small leather-bound diary. The first entry is dated 1962.
+</tw-passagedata><tw-passagedata pid="112" name="Box5_Item4" tags="" position="1000,2000" size="100,100">&#39;&#39;Ring binder&#39;&#39;
+
+Fill in more information about the ring binder
 
 What do you want to do?
 
 [[Keep this item|Keep_Box5_Item4]]
+
 [[Leave this item|Leave_Box5_Item4]]
+
 [[Decide later|Box5Explore]]</tw-passagedata><tw-passagedata pid="113" name="Keep_Box5_Item4" tags="" position="1000,2025" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box5_Item4&quot;] = &quot;kept&quot;&gt;&gt;
 &lt;&lt;run $itemsKept.push(&quot;Box5_Item4&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box5Explore&quot;&gt;&gt;
 </tw-passagedata><tw-passagedata pid="114" name="Leave_Box5_Item4" tags="" position="1000,2050" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box5_Item4&quot;] = &quot;left&quot;&gt;&gt;
 &lt;&lt;run $itemsLeft.push(&quot;Box5_Item4&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box5Explore&quot;&gt;&gt;
-</tw-passagedata><tw-passagedata pid="115" name="Box6_Item1" tags="" position="1125,1775" size="100,100">This is a small leather-bound diary. The first entry is dated 1962.
+</tw-passagedata><tw-passagedata pid="115" name="Box6_Item1" tags="" position="1125,1775" size="100,100">&#39;&#39;Notes&#39;&#39;
+
+Fill in more information about the notes
 
 What do you want to do?
 
 [[Keep this item|Keep_Box6_Item1]]
+
 [[Leave this item|Leave_Box6_Item1]]
+
 [[Decide later|Box6Explore]]</tw-passagedata><tw-passagedata pid="116" name="Keep_Box6_Item1" tags="" position="1125,1800" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box6_Item1&quot;] = &quot;kept&quot;&gt;&gt;
 &lt;&lt;run $itemsKept.push(&quot;Box6_Item1&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box6Explore&quot;&gt;&gt;
 </tw-passagedata><tw-passagedata pid="117" name="Leave_Box6_Item1" tags="" position="1125,1825" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box6_Item1&quot;] = &quot;left&quot;&gt;&gt;
 &lt;&lt;run $itemsLeft.push(&quot;Box6_Item1&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box6Explore&quot;&gt;&gt;
-</tw-passagedata><tw-passagedata pid="118" name="Box6_Item2" tags="" position="1125,1850" size="100,100">This is a small leather-bound diary. The first entry is dated 1962.
+</tw-passagedata><tw-passagedata pid="118" name="Box6_Item2" tags="" position="1125,1850" size="100,100">&#39;&#39;Old iPod&#39;&#39;
+
+Fill in more information about the old iPod
 
 What do you want to do?
 
 [[Keep this item|Keep_Box6_Item2]]
+
 [[Leave this item|Leave_Box6_Item2]]
+
 [[Decide later|Box6Explore]]</tw-passagedata><tw-passagedata pid="119" name="Keep_Box6_Item2" tags="" position="1125,1875" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box6_Item2&quot;] = &quot;kept&quot;&gt;&gt;
 &lt;&lt;run $itemsKept.push(&quot;Box6_Item2&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box6Explore&quot;&gt;&gt;
 </tw-passagedata><tw-passagedata pid="120" name="Leave_Box6_Item2" tags="" position="1125,1900" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box6_Item2&quot;] = &quot;left&quot;&gt;&gt;
 &lt;&lt;run $itemsLeft.push(&quot;Box6_Item2&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box6Explore&quot;&gt;&gt;
-</tw-passagedata><tw-passagedata pid="121" name="Box6_Item3" tags="" position="1125,1925" size="100,100">This is a small leather-bound diary. The first entry is dated 1962.
+</tw-passagedata><tw-passagedata pid="121" name="Box6_Item3" tags="" position="1125,1925" size="100,100">&#39;&#39;Random bits&#39;&#39;
+
+Fill in more information about the random bits
 
 What do you want to do?
 
 [[Keep this item|Keep_Box6_Item3]]
+
 [[Leave this item|Leave_Box6_Item3]]
+
 [[Decide later|Box6Explore]]</tw-passagedata><tw-passagedata pid="122" name="Keep_Box6_Item3" tags="" position="1125,1950" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box6_Item3&quot;] = &quot;kept&quot;&gt;&gt;
 &lt;&lt;run $itemsKept.push(&quot;Box6_Item3&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box6Explore&quot;&gt;&gt;
 </tw-passagedata><tw-passagedata pid="123" name="Leave_Box6_Item3" tags="" position="1125,1975" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box6_Item3&quot;] = &quot;left&quot;&gt;&gt;
 &lt;&lt;run $itemsLeft.push(&quot;Box6_Item3&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box6Explore&quot;&gt;&gt;
-</tw-passagedata><tw-passagedata pid="124" name="Box6_Item4" tags="" position="1125,2000" size="100,100">This is a small leather-bound diary. The first entry is dated 1962.
+</tw-passagedata><tw-passagedata pid="124" name="Box6_Item4" tags="" position="1125,2000" size="100,100">&#39;&#39;Loose papers&#39;&#39;
+
+Fill in more information about the loose papers
 
 What do you want to do?
 
 [[Keep this item|Keep_Box6_Item4]]
+
 [[Leave this item|Leave_Box6_Item4]]
+
 [[Decide later|Box6Explore]]</tw-passagedata><tw-passagedata pid="125" name="Keep_Box6_Item4" tags="" position="1125,2025" size="100,100">&lt;&lt;set $itemDecisions[&quot;Box6_Item4&quot;] = &quot;kept&quot;&gt;&gt;
 &lt;&lt;run $itemsKept.push(&quot;Box6_Item4&quot;)&gt;&gt;
 &lt;&lt;goto &quot;Box6Explore&quot;&gt;&gt;
@@ -1697,40 +1719,40 @@ What do you want to do?
 &lt;&lt;set $boxesLeft = []&gt;&gt;
 &lt;&lt;set $forcedLeaveBox = []&gt;&gt;
 &lt;&lt;set $boxDescriptions = {
-  &quot;Box1&quot;: &quot;Box 1 – the one with the diaries and...&quot;,
-  &quot;Box2&quot;: &quot;Box 2 – the one with the recipe books...&quot;,
-  &quot;Box3&quot;: &quot;Box 3 – the one with nothing on the sides...&quot;,
-  &quot;Box4&quot;: &quot;Box 4 – the one with football shirts...&quot;,
-  &quot;Box5&quot;: &quot;Box 5 – the one with photographs and medals...&quot;,
-  &quot;Box6&quot;: &quot;Box 6 – the one with bills and financial papers...&quot;,
-  &quot;Box7&quot;: &quot;Box 7 – the mystery box&quot;
+  &quot;Box1&quot;: &quot;Box 1 – The one with the diaries, correspondence, and magazines.&quot;,
+  &quot;Box2&quot;: &quot;Box 2 – the one with the books, financial papers, and SD card.&quot;,
+  &quot;Box3&quot;: &quot;Box 3 – the one with the posters, gloves, shirts, and medals.&quot;,
+  &quot;Box4&quot;: &quot;Box 4 – the one with the correspondence, research, and photographs.&quot;,
+  &quot;Box5&quot;: &quot;Box 5 – the one with the newspapers, glasses, and photographs.&quot;,
+  &quot;Box6&quot;: &quot;Box 6 – the one with the iPod, notes, and random bits.&quot;,
+  &quot;Box7&quot;: &quot;Box 7 – the mystery box.&quot;
 }&gt;&gt;
 
 &lt;&lt;set $itemDescriptions = {
-  &quot;Box1_Item1&quot;: &quot;Diary from 1962&quot;,
-  &quot;Box1_Item2&quot;: &quot;Notebook with green cover&quot;,
-  &quot;Box1_Item3&quot;: &quot;Loose bundle of poetry&quot;,
-  &quot;Box1_Item4&quot;: &quot;Family photo tucked in a journal&quot;,
-  &quot;Box2_Item1&quot;: &quot;Diary from 1962&quot;,
-  &quot;Box2_Item2&quot;: &quot;Notebook with green cover&quot;,
-  &quot;Box2_Item3&quot;: &quot;Loose bundle of poetry&quot;,
-  &quot;Box2_Item4&quot;: &quot;Family photo tucked in a journal&quot;,
-  &quot;Box3_Item1&quot;: &quot;Diary from 1962&quot;,
-  &quot;Box3_Item2&quot;: &quot;Notebook with green cover&quot;,
-  &quot;Box3_Item3&quot;: &quot;Loose bundle of poetry&quot;,
-  &quot;Box3_Item4&quot;: &quot;Family photo tucked in a journal&quot;,
-  &quot;Box4_Item1&quot;: &quot;Diary from 1962&quot;,
-  &quot;Box4_Item2&quot;: &quot;Notebook with green cover&quot;,
-  &quot;Box4_Item3&quot;: &quot;Loose bundle of poetry&quot;,
-  &quot;Box4_Item4&quot;: &quot;Family photo tucked in a journal&quot;,
-  &quot;Box5_Item1&quot;: &quot;Diary from 1962&quot;,
-  &quot;Box5_Item2&quot;: &quot;Notebook with green cover&quot;,
-  &quot;Box5_Item3&quot;: &quot;Loose bundle of poetry&quot;,
-  &quot;Box5_Item4&quot;: &quot;Family photo tucked in a journal&quot;,
-  &quot;Box6_Item1&quot;: &quot;Diary from 1962&quot;,
-  &quot;Box6_Item2&quot;: &quot;Notebook with green cover&quot;,
-  &quot;Box6_Item3&quot;: &quot;Loose bundle of poetry&quot;,
-  &quot;Box6_Item4&quot;: &quot;Family photo tucked in a journal&quot;
+  &quot;Box1_Item1&quot;: &quot;Diaries&quot;,
+  &quot;Box1_Item2&quot;: &quot;More diaries&quot;,
+  &quot;Box1_Item3&quot;: &quot;Correspondence&quot;,
+  &quot;Box1_Item4&quot;: &quot;Magazines&quot;,
+  &quot;Box2_Item1&quot;: &quot;Recipe books&quot;,
+  &quot;Box2_Item2&quot;: &quot;Financial papers&quot;,
+  &quot;Box2_Item3&quot;: &quot;Books&quot;,
+  &quot;Box2_Item4&quot;: &quot;SD card&quot;,
+  &quot;Box3_Item1&quot;: &quot;Posters&quot;,
+  &quot;Box3_Item2&quot;: &quot;Gloves&quot;,
+  &quot;Box3_Item3&quot;: &quot;Football shirts&quot;,
+  &quot;Box3_Item4&quot;: &quot;Medals&quot;,
+  &quot;Box4_Item1&quot;: &quot;Correspondence&quot;,
+  &quot;Box4_Item2&quot;: &quot;Drafts&quot;,
+  &quot;Box4_Item3&quot;: &quot;Research notes&quot;,
+  &quot;Box4_Item4&quot;: &quot;Photographs&quot;,
+  &quot;Box5_Item1&quot;: &quot;Newspapers&quot;,
+  &quot;Box5_Item2&quot;: &quot;Glasses&quot;,
+  &quot;Box5_Item3&quot;: &quot;Notebooks&quot;,
+  &quot;Box5_Item4&quot;: &quot;Ring binder&quot;,
+  &quot;Box6_Item1&quot;: &quot;Notes&quot;,
+  &quot;Box6_Item2&quot;: &quot;Old iPod&quot;,
+  &quot;Box6_Item3&quot;: &quot;Random bits&quot;,
+  &quot;Box6_Item4&quot;: &quot;Loose papers&quot;
 }&gt;&gt;
 
 &lt;&lt;set $boxItemsMap = {
